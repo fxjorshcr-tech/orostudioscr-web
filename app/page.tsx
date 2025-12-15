@@ -16,22 +16,22 @@ import {
 // ============================================
 const IMAGES = {
   logo: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/Orostudios%20CR%20Logo.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9Pcm9zdHVkaW9zIENSIExvZ28ucG5nIiwiaWF0IjoxNzY1MzgwODE2LCJleHAiOjE3OTY5MTY4MTZ9.tQQHhDBH5x_5kg1ddnzKcZch76TpcMznMgIG135xhg4",
-  grupoOroz: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/grupo-oroz-logo.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9ncnVwby1vcm96LWxvZ28uanBnIiwiaWF0IjoxNzY1MzgzNzMyLCJleHAiOjE3OTY5MTk3MzJ9.GH-tJIL8egexpqKFyTOtvTCmBLZr1hsw4T5pt8bWstg",
+  grupoOroz: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/logo-grupo-oroz-transparente.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9sb2dvLWdydXBvLW9yb3otdHJhbnNwYXJlbnRlLndlYnAiLCJpYXQiOjE3NjU4MDY4MDksImV4cCI6MTc5NzM0MjgwOX0.JxX1v1ry7F5ZE6QQY-uDxqLR-frWA1qmK5xkS6AurHw",
   heroVideo: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/Video%20de%20WhatsApp%202025-12-10%20a%20las%2010.15.38_4fdd5b22.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WaWRlbyBkZSBXaGF0c0FwcCAyMDI1LTEyLTEwIGEgbGFzIDEwLjE1LjM4XzRmZGQ1YjIyLm1wNCIsImlhdCI6MTc2NTM4MzYyMCwiZXhwIjoxNzk2OTE5NjIwfQ.n4LfIx5qobVB3KMd0s9potMkV1gzilTYuKrCpHOLm2I",
-  hero: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/HORIZONTAL1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9IT1JJWk9OVEFMMS53ZWJwIiwiaWF0IjoxNzY1Mzc4NzMzLCJleHAiOjE3OTY5MTQ3MzN9.ToBE3fnq84kRsD6LpIeXSPjYbm2UKBvscvY6FS2TnII",
-  horizontal2: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/HORIZONTAL2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9IT1JJWk9OVEFMMi53ZWJwIiwiaWF0IjoxNzY1Mzc4NzQ1LCJleHAiOjE3OTY5MTQ3NDV9._XgQTc5wBbmrXkBDHkdQ9Zar56uNxTZo1FEEdD9UNt4",
+  hero: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/HORIZONTAL1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9IT1JJWk9OVEFMMS53ZWJwIiwiaWF0IjoxNzY1ODE0MDM0LCJleHAiOjE3OTczNTAwMzR9.oeth-zHJG2WFel_FFGiI2iv2B6fjLNwbWke3ClUCeeQ",
+  horizontal2: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/HORIZONTAL2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9IT1JJWk9OVEFMMi53ZWJwIiwiaWF0IjoxNzY1ODE0MDU2LCJleHAiOjE3OTczNTAwNTZ9.4BPfNhr7JxN57mO9gI-OWEFnYpci89iwWq0aEiBAOkY",
   horizontal3: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/HORIZONTAL3.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9IT1JJWk9OVEFMMy53ZWJwIiwiaWF0IjoxNzY1Mzc4NzU0LCJleHAiOjE3OTY5MTQ3NTR9.HnN9AMpd0Jv_r2u8WUEt0thbHnJZcbx35AQpGUPnT-0",
-  vertical1: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDEud2VicCIsImlhdCI6MTc2NTM3ODc3NCwiZXhwIjoxNzk2OTE0Nzc0fQ.ZJuJ8rDGpOamsMKvXnrogCHnLZ5Oqxm68F0sqA5058I",
-  vertical1b: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL1%20(1).webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDEgKDEpLndlYnAiLCJpYXQiOjE3NjUzNzg3NjYsImV4cCI6MTc5NjkxNDc2Nn0.BhW5hW9OF2NKs2eZoQbH2vL-BJhvJo20GAUXOrDB6GM",
-  vertical2: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDIud2VicCIsImlhdCI6MTc2NTM3ODc4MSwiZXhwIjoxNzk2OTE0NzgxfQ.h5BYfDxUBo8EsJvdtdl28zK6W0sYlKTnDh3gATz5rYg",
-  vertical3: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL3.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDMud2VicCIsImlhdCI6MTc2NTM3ODc4OSwiZXhwIjoxNzk2OTE0Nzg5fQ.xzx-1G8Uh-h3KQksfi-m7EBPLsq2EK2CCgtbAeyPIz8",
-  vertical4: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL4.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDQud2VicCIsImlhdCI6MTc2NTM3ODc5NywiZXhwIjoxNzk2OTE0Nzk3fQ.s96ODuJwAfBolMKeKN_Hnssr6YGhlqv9IC3RhCI7X34",
-  vertical5: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/VERTICAL5.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9WRVJUSUNBTDUud2VicCIsImlhdCI6MTc2NTM3ODgwNSwiZXhwIjoxNzk2OTE0ODA1fQ.Rasx1LArqzJXi2YpWmYKgbtM6biLOJ6dmTKkvPqaq6Q",
+  gallery1: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0018.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDE4LmpwZyIsImlhdCI6MTc2NTgxMTk4NywiZXhwIjoxNzk3MzQ3OTg3fQ.rwMORlW9znJztB4V9HY38rYDEkxuLwoiIvBLIqsCWUU",
+  gallery2: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0016.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDE2LmpwZyIsImlhdCI6MTc2NTgxMTk5OSwiZXhwIjoxNzk3MzQ3OTk5fQ.ktUrDrJx3wYfFDGZZOOzQDPVraEXTls0TWp-jF7SKzI",
+  gallery3: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0014.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDE0LmpwZyIsImlhdCI6MTc2NTgxMjAxNCwiZXhwIjoxNzk3MzQ4MDE0fQ.Hj56b-N87m6WMaejtwl1Gd2-jLxQThlLR_2nGyFxAEU",
+  gallery4: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0008.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDA4LmpwZyIsImlhdCI6MTc2NTgxMjA0MSwiZXhwIjoxNzk3MzQ4MDQxfQ.MAs_yltvXTG-aUyWCRTE1J2sm76C9g3Jf3QufEckd2w",
+  gallery5: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0006.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDA2LmpwZyIsImlhdCI6MTc2NTgxMjA1MywiZXhwIjoxNzk3MzQ4MDUzfQ.SnakkuB9T5IJq58wgYWYuc9omfpYNRkP-6fPRYi8K0E",
+  gallery6: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/IMG-20251215-WA0005.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9JTUctMjAyNTEyMTUtV0EwMDA1LmpwZyIsImlhdCI6MTc2NTgxMjA2MywiZXhwIjoxNzk3MzQ4MDYzfQ.NPLyg7dlNmvwhzQ8t6Nww-9Xjj2x-F8HbfXoQQoKuWs",
   verticalEco: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/vertcal-eco.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy92ZXJ0Y2FsLWVjby53ZWJwIiwiaWF0IjoxNzY1NDY4Mjk5LCJleHAiOjE3OTcwMDQyOTl9.bHHlaj89iCcg6QLFo02fcCfZQ-2_ITuXoX9XART00sU",
   canopyEco: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/canopy-eco.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9jYW5vcHktZWNvLndlYnAiLCJpYXQiOjE3NjU0NjgzMTQsImV4cCI6MTc5NzAwNDMxNH0.H_T1TBuE6rJz4cEVe-y6N0ts7jhBGRCYlUCvvYarrrY",
-  ecoglide: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/ecoglide-oficina.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9lY29nbGlkZS1vZmljaW5hLnBuZyIsImlhdCI6MTc2NTM3OTE0MywiZXhwIjoxNzk2OTE1MTQzfQ.xhT5pyL7gbd03ZUudh_6RrE9zw2d5GESsgBOEj28FD8",
+  ecoglide: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/foto-eco-ofic.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9mb3RvLWVjby1vZmljLmpwZyIsImlhdCI6MTc2NTgxMzgzOCwiZXhwIjoxNzk3MzQ5ODM4fQ.6OB1D8_tmuNz6LKBVie-WT2N_0Nu7XXrU4Q6j4ipews",
   skyline: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/skyline-oficina.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9za3lsaW5lLW9maWNpbmEud2VicCIsImlhdCI6MTc2NTM3OTE3MCwiZXhwIjoxNzk2OTE1MTcwfQ.GDBP76-wL0YKrv_KxN_rXuUkZG0zvzjK_-IGCoRtT04",
-  ama: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/ama-oficina.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9hbWEtb2ZpY2luYS53ZWJwIiwiaWF0IjoxNzY1Mzc5MTU0LCJleHAiOjE3OTY5MTUxNTR9.h3uN0k0bvwCgEmOS9u_OnnjH6Ve2zM3iCQ6P-S7mWcQ",
+  ama: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/ama-ofi.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9hbWEtb2ZpLnBuZyIsImlhdCI6MTc2NTgxMzc1NCwiZXhwIjoxNzk3MzQ5NzU0fQ.0xKVMbq34JB4iUP1orwfI40OaDBcQa1TEU9YS-Apom0",
   poas: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/poas-adventure-park.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9wb2FzLWFkdmVudHVyZS1wYXJrLndlYnAiLCJpYXQiOjE3NjUzNzkxMjUsImV4cCI6MTc5NjkxNTEyNX0.WCytgZ_KWoXIcKDfqlptpaRY2LlodAlMrT-IJlzvuLg",
 };
 
@@ -85,6 +85,12 @@ const translations = {
     },
     parks: [
       {
+        id: "ama",
+        name: "Arenal Mundo Aventura",
+        location: "La Fortuna de San Carlos",
+        description: "La naturaleza y la aventura se fusionan en cada toma. Revive tu recorrido por los cañones y cascadas con fotografías profesionales.",
+      },
+      {
         id: "ecoglide",
         name: "Ecoglide Arenal Park",
         location: "La Fortuna de San Carlos",
@@ -95,12 +101,6 @@ const translations = {
         name: "Skyline Canopy Tour",
         location: "Santa Cruz, Guanacaste",
         description: "Altura, velocidad y paisajes impresionantes. Nuestro equipo captura cada salto y sonrisa desde el mejor ángulo.",
-      },
-      {
-        id: "ama",
-        name: "Arenal Mundo Aventura",
-        location: "La Fortuna de San Carlos",
-        description: "La naturaleza y la aventura se fusionan en cada toma. Revive tu recorrido por los cañones y cascadas con fotografías profesionales.",
       },
       {
         id: "poas",
@@ -400,6 +400,12 @@ const translations = {
     },
     parks: [
       {
+        id: "ama",
+        name: "Arenal Mundo Aventura",
+        location: "La Fortuna de San Carlos",
+        description: "Nature and adventure merge in every shot. Relive your journey through the canyons and waterfalls with professional photographs.",
+      },
+      {
         id: "ecoglide",
         name: "Ecoglide Arenal Park",
         location: "La Fortuna de San Carlos",
@@ -410,12 +416,6 @@ const translations = {
         name: "Skyline Canopy Tour",
         location: "Santa Cruz, Guanacaste",
         description: "Height, speed and impressive landscapes. Our team captures every jump and smile from the best angle.",
-      },
-      {
-        id: "ama",
-        name: "Arenal Mundo Aventura",
-        location: "La Fortuna de San Carlos",
-        description: "Nature and adventure merge in every shot. Relive your journey through the canyons and waterfalls with professional photographs.",
       },
       {
         id: "poas",
@@ -682,7 +682,7 @@ const equipmentIcons = [Monitor, Shirt, HardHat, FileCheck, GraduationCap, Lock]
 // ============================================
 export default function Home() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
-  const [activePark, setActivePark] = useState("ecoglide");
+  const [activePark, setActivePark] = useState("ama");
   const [lang, setLang] = useState<Lang>("es");
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -695,7 +695,7 @@ export default function Home() {
   const t = translations[lang];
   const currentPark = t.parks.find(p => p.id === activePark) || t.parks[0];
   const parkImages = { ecoglide: IMAGES.ecoglide, skyline: IMAGES.skyline, ama: IMAGES.ama, poas: IMAGES.poas };
-  const galleryImageSrcs = [IMAGES.vertical1, IMAGES.vertical2, IMAGES.vertical3, IMAGES.vertical4, IMAGES.vertical5, IMAGES.vertical1b];
+  const galleryImageSrcs = [IMAGES.gallery1, IMAGES.gallery2, IMAGES.gallery3, IMAGES.gallery4, IMAGES.gallery5, IMAGES.gallery6];
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
@@ -807,14 +807,27 @@ export default function Home() {
       </section>
 
       {/* ==================== A COMPANY BY ==================== */}
-      <section id="company" className="py-12 px-4 bg-zinc-900/30 border-y border-zinc-800">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4">
-          <span className="text-zinc-500 text-sm tracking-wider uppercase">A company by</span>
-          <img 
-            src={IMAGES.grupoOroz} 
-            alt="Grupo Oroz" 
-            className="h-64 w-auto rounded-lg mix-blend-lighten"
-          />
+      <section id="company" className="py-16 px-4 bg-gradient-to-b from-zinc-950 to-zinc-900">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="relative bg-zinc-900/60 backdrop-blur-xl border border-orange-500/20 rounded-3xl px-12 py-10 shadow-2xl shadow-orange-500/5">
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent rounded-3xl" />
+            
+            {/* Content */}
+            <div className="relative flex flex-col items-center gap-6">
+              <div className="flex items-center gap-4">
+                <div className="h-px w-8 bg-gradient-to-r from-transparent to-orange-500/50" />
+                <span className="text-zinc-400 text-xs tracking-[0.3em] uppercase font-medium">A company by</span>
+                <div className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/50" />
+              </div>
+              
+              <img 
+                src={IMAGES.grupoOroz} 
+                alt="Grupo Oroz" 
+                className="h-32 sm:h-40 w-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1272,7 +1285,7 @@ export default function Home() {
 
             <div className="space-y-12 lg:space-y-24">
               {t.howItWorks.steps.map((step, index) => {
-                const images = [IMAGES.horizontal2, IMAGES.vertical3, IMAGES.canopyEco, IMAGES.vertical4, IMAGES.ecoglide];
+                const images = [IMAGES.hero, IMAGES.horizontal2, IMAGES.horizontal3, IMAGES.canopyEco, IMAGES.ama];
                 const isEven = index % 2 === 0;
                 
                 return (

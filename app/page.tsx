@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { 
   Camera, Video, Clock, Users, Check, Phone, Mail, MapPin, 
   Instagram, Facebook, Monitor, Shirt, HardHat, FileCheck, 
-  GraduationCap, Lock, ChevronDown, Wrench, HeadphonesIcon,
+  GraduationCap, Lock, Wrench, HeadphonesIcon,
   ClipboardCheck, RefreshCw, Shield, TrendingUp, Award, 
   DollarSign, Zap, Heart, Star, ArrowRight, Building2, 
   Handshake, Target, Sparkles, Plane, Megaphone, BarChart3,
@@ -755,7 +755,7 @@ export default function Home() {
       </nav>
 
       {/* ==================== HERO ==================== */}
-      <section className="relative h-screen">
+      <section className="relative h-screen min-h-[600px]">
         <div className="absolute inset-0 overflow-hidden">
           <video
             ref={videoRef}
@@ -763,7 +763,8 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
+            style={{ minWidth: '100%', minHeight: '100%' }}
           >
             <source src={IMAGES.heroVideo} type="video/mp4" />
           </video>
@@ -771,39 +772,29 @@ export default function Home() {
         </div>
 
         {/* Offices Bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-zinc-950/80 backdrop-blur-sm border-t border-zinc-800">
-          <div className="max-w-7xl mx-auto px-4 py-4">
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+        <div className="absolute bottom-0 left-0 right-0 bg-zinc-950/90 backdrop-blur-sm border-t border-zinc-800">
+          <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center gap-3 sm:gap-x-6 sm:gap-y-2 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-orange-500" />
-                <span className="text-white font-medium">Arenal Mundo Aventura</span>
-                <span className="text-zinc-500">La Fortuna</span>
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 flex-shrink-0" />
+                <span className="text-white font-medium truncate">Arenal Mundo Aventura</span>
               </div>
-              <span className="text-zinc-700 hidden sm:block">|</span>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-orange-500" />
-                <span className="text-white font-medium">Ecoglide Arenal Park</span>
-                <span className="text-zinc-500">La Fortuna</span>
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 flex-shrink-0" />
+                <span className="text-white font-medium truncate">Ecoglide Arenal Park</span>
               </div>
-              <span className="text-zinc-700 hidden sm:block">|</span>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-orange-500" />
-                <span className="text-white font-medium">Skyline Canopy Tour</span>
-                <span className="text-zinc-500">Guanacaste</span>
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 flex-shrink-0" />
+                <span className="text-white font-medium truncate">Skyline Canopy Tour</span>
               </div>
-              <span className="text-zinc-700 hidden sm:block">|</span>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-orange-500" />
-                <span className="text-white font-medium">Poas Adventure Park</span>
-                <span className="text-orange-500 text-xs font-semibold">Coming Soon</span>
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500 flex-shrink-0" />
+                <span className="text-white font-medium truncate">Poas Adventure Park</span>
+                <span className="text-orange-500 text-[10px] sm:text-xs font-semibold">Soon</span>
               </div>
             </div>
           </div>
         </div>
-
-        <a href="#company" className="absolute bottom-24 left-1/2 -translate-x-1/2 text-orange-500 animate-bounce">
-          <ChevronDown className="w-8 h-8" />
-        </a>
       </section>
 
       {/* ==================== A COMPANY BY ==================== */}

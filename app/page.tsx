@@ -10,7 +10,7 @@ import {
   Handshake, Target, Sparkles, Plane, Megaphone, BarChart3,
   Globe, Network, BadgeCheck, UserCheck, Smartphone, Film,
   Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefcase, Home as HomeIcon,
-  CheckCircle, Search, Clock3, ShieldCheck, Send, Loader2
+  CheckCircle, Search, Clock3, ShieldCheck, Send, Loader2, X
 } from "lucide-react";
 
 // ============================================
@@ -59,14 +59,14 @@ const translations = {
       title1: "Aliados Estratégicos en",
       titleHighlight: "Fotografía",
       title2: "para Parques de Aventura",
-      subtitle: "En Orostudios CR somos apasionados por capturar los momentos que hacen únicas las experiencias de aventura en Costa Rica.",
+      subtitle: "En Orostudioscr somos apasionados por capturar los momentos que hacen únicas las experiencias de aventura en Costa Rica.",
       cta1: "Contáctenos",
       cta2: "Ver Nuestro Trabajo",
     },
     // About
     about: {
       label: "Nosotros",
-      title1: "En Orostudios CR somos apasionados por capturar",
+      title1: "En Orostudioscr somos apasionados por capturar",
       titleHighlight: "momentos únicos",
       p1: "Somos una empresa costarricense con más de 20 años de experiencia brindando servicios fotográficos profesionales en el sector turístico, especialmente en tours de canopy y actividades de aventura.",
       p2: "Durante este tiempo hemos trabajado con más de 18 parques de canopy en todo el país, desarrollando un modelo de operación que permite a las empresas ofrecer a sus visitantes recuerdos de alta calidad sin preocuparse por logística, equipo o personal.",
@@ -231,7 +231,7 @@ const translations = {
       {
         category: "Equipo",
         title: "Tecnología",
-        description: "Proveemos todo el equipo tecnológico para la operación: cámaras, pantallas, equipo de sonido, papelería, arneses certificados y más. En caso de utilizar equipos del parque, Orostudios CR asume total responsabilidad de su uso y cuidado.",
+        description: "Proveemos todo el equipo tecnológico para la operación: cámaras, pantallas, equipo de sonido, papelería, arneses certificados y más. En caso de utilizar equipos del parque, Orostudioscr asume total responsabilidad de su uso y cuidado.",
       },
       {
         category: "Equipo",
@@ -292,8 +292,8 @@ const translations = {
       messagePlaceholder: "Cuéntenos sobre su proyecto o negocio...",
       submit: "Enviar Mensaje",
       sending: "Enviando...",
-      successTitle: "¡Mensaje enviado!",
-      successMessage: "Nos pondremos en contacto con usted pronto.",
+      successTitle: "¡Correo enviado!",
+      successMessage: "Pronto te contactamos",
       orContact: "O contáctenos directamente",
     },
     // Leaders
@@ -329,7 +329,7 @@ const translations = {
       label: "Cero Riesgo",
       title1: "100% responsabilidad nuestra,",
       titleHighlight: "0% riesgo para usted",
-      subtitle: "La responsabilidad de venta es totalmente de OroStudios CR. Usted no invierte en personal, equipos ni operación. Nosotros asumimos todo el riesgo operativo y comercial.",
+      subtitle: "La responsabilidad de venta es totalmente de Orostudioscr. Usted no invierte en personal, equipos ni operación. Nosotros asumimos todo el riesgo operativo y comercial.",
       card1Title: "Sin inversión inicial",
       card1Text: "No necesita comprar equipos, contratar personal ni capacitar a nadie. Nosotros llegamos listos para operar.",
       card2Title: "Sin riesgo operativo",
@@ -435,14 +435,14 @@ const translations = {
       title1: "Strategic Partners in",
       titleHighlight: "Photography",
       title2: "for Adventure Parks",
-      subtitle: "At Orostudios CR we are passionate about capturing the moments that make adventure experiences in Costa Rica unique.",
+      subtitle: "At Orostudioscr we are passionate about capturing the moments that make adventure experiences in Costa Rica unique.",
       cta1: "Contact Us",
       cta2: "See Our Work",
     },
     // About
     about: {
       label: "About Us",
-      title1: "At Orostudios CR we are passionate about capturing",
+      title1: "At Orostudioscr we are passionate about capturing",
       titleHighlight: "unique moments",
       p1: "We are a Costa Rican company with more than 20 years of experience providing professional photography services in the tourism sector, especially in canopy tours and adventure activities.",
       p2: "During this time we have worked with more than 18 canopy parks throughout the country, developing an operation model that allows companies to offer their visitors high-quality memories without worrying about logistics, equipment or staff.",
@@ -608,7 +608,7 @@ const translations = {
       {
         category: "Equipment",
         title: "Technology",
-        description: "We provide all technological equipment for the operation: cameras, screens, sound equipment, stationery, certified harnesses and more. If using park equipment, Orostudios CR assumes full responsibility for its use and care.",
+        description: "We provide all technological equipment for the operation: cameras, screens, sound equipment, stationery, certified harnesses and more. If using park equipment, Orostudioscr assumes full responsibility for its use and care.",
       },
       {
         category: "Equipment",
@@ -668,8 +668,8 @@ const translations = {
       messagePlaceholder: "Tell us about your project or business...",
       submit: "Send Message",
       sending: "Sending...",
-      successTitle: "Message sent!",
-      successMessage: "We'll get back to you soon.",
+      successTitle: "Email sent!",
+      successMessage: "We'll contact you soon",
       orContact: "Or contact us directly",
     },
     // Leaders
@@ -705,7 +705,7 @@ const translations = {
       label: "Zero Risk",
       title1: "100% our responsibility,",
       titleHighlight: "0% risk for you",
-      subtitle: "Sales responsibility is entirely OroStudios CR's. You don't invest in staff, equipment or operations. We assume all operational and commercial risk.",
+      subtitle: "Sales responsibility is entirely Orostudioscr's. You don't invest in staff, equipment or operations. We assume all operational and commercial risk.",
       card1Title: "No initial investment",
       card1Text: "No need to buy equipment, hire staff or train anyone. We arrive ready to operate.",
       card2Title: "No operational risk",
@@ -822,7 +822,8 @@ export default function Home() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -831,19 +832,25 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError("");
     
-    // Simulate form submission - replace with actual API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Here you would send the data to your backend or email service
-    console.log("Form submitted:", formData);
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el mensaje');
+      }
+
+      // Show success modal
+      setShowSuccessModal(true);
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -852,7 +859,15 @@ export default function Home() {
         service: "",
         message: "",
       });
-    }, 3000);
+    } catch (error) {
+      setSubmitError(lang === "es" ? "Error al enviar el mensaje. Por favor intente de nuevo." : "Error sending message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeSuccessModal = () => {
+    setShowSuccessModal(false);
   };
 
   useEffect(() => {
@@ -878,11 +893,42 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
+      {/* ==================== SUCCESS MODAL ==================== */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={closeSuccessModal}
+          />
+          
+          {/* Modal */}
+          <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in duration-300">
+            {/* Close button */}
+            <button
+              onClick={closeSuccessModal}
+              className="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            {/* Content */}
+            <div className="text-center">
+              <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-500" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">{t.contact.successTitle}</h3>
+              <p className="text-zinc-400 text-lg">{t.contact.successMessage}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ==================== NAVIGATION ==================== */}
       <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-32">
-            <img src={IMAGES.logo} alt="OroStudios CR" className="h-20 sm:h-28 w-auto" />
+            <img src={IMAGES.logo} alt="Orostudioscr" className="h-20 sm:h-28 w-auto" />
             
             <div className="hidden lg:flex items-center gap-6">
               {Object.entries(t.nav).map(([key, value]) => (
@@ -1693,119 +1739,115 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">{t.contact.successTitle}</h3>
-                  <p className="text-zinc-400">{t.contact.successMessage}</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleFormChange}
-                        placeholder={t.contact.namePlaceholder}
-                        required
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleFormChange}
-                        placeholder={t.contact.emailPlaceholder}
-                        required
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
+                      type="text"
+                      name="name"
+                      value={formData.name}
                       onChange={handleFormChange}
-                      placeholder={t.contact.phonePlaceholder}
+                      placeholder={t.contact.namePlaceholder}
+                      required
                       className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
                     />
                   </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <select
-                        name="businessType"
-                        value={formData.businessType}
-                        onChange={handleFormChange}
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
-                      >
-                        <option value="" className="text-zinc-500">{t.contact.businessType}</option>
-                        <option value="park">{t.contact.businessTypes.park}</option>
-                        <option value="hotel">{t.contact.businessTypes.hotel}</option>
-                        <option value="restaurant">{t.contact.businessTypes.restaurant}</option>
-                        <option value="tour">{t.contact.businessTypes.tour}</option>
-                        <option value="store">{t.contact.businessTypes.store}</option>
-                        <option value="professional">{t.contact.businessTypes.professional}</option>
-                        <option value="realestate">{t.contact.businessTypes.realestate}</option>
-                        <option value="other">{t.contact.businessTypes.other}</option>
-                      </select>
-                    </div>
-                    <div>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleFormChange}
-                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
-                      >
-                        <option value="" className="text-zinc-500">{t.contact.servicePlaceholder}</option>
-                        <option value="photography">{t.contact.services.photography}</option>
-                        <option value="web">{t.contact.services.web}</option>
-                        <option value="social">{t.contact.services.social}</option>
-                        <option value="content">{t.contact.services.content}</option>
-                        <option value="marketing">{t.contact.services.marketing}</option>
-                        <option value="all">{t.contact.services.all}</option>
-                      </select>
-                    </div>
-                  </div>
-
                   <div>
-                    <textarea
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleFormChange}
-                      placeholder={t.contact.messagePlaceholder}
-                      rows={4}
-                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors resize-none"
+                      placeholder={t.contact.emailPlaceholder}
+                      required
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-500/50 text-black font-bold py-4 rounded-xl transition-all hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        {t.contact.sending}
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5" />
-                        {t.contact.submit}
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFormChange}
+                    placeholder={t.contact.phonePlaceholder}
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                  />
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <select
+                      name="businessType"
+                      value={formData.businessType}
+                      onChange={handleFormChange}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
+                    >
+                      <option value="" className="text-zinc-500">{t.contact.businessType}</option>
+                      <option value="park">{t.contact.businessTypes.park}</option>
+                      <option value="hotel">{t.contact.businessTypes.hotel}</option>
+                      <option value="restaurant">{t.contact.businessTypes.restaurant}</option>
+                      <option value="tour">{t.contact.businessTypes.tour}</option>
+                      <option value="store">{t.contact.businessTypes.store}</option>
+                      <option value="professional">{t.contact.businessTypes.professional}</option>
+                      <option value="realestate">{t.contact.businessTypes.realestate}</option>
+                      <option value="other">{t.contact.businessTypes.other}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleFormChange}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
+                    >
+                      <option value="" className="text-zinc-500">{t.contact.servicePlaceholder}</option>
+                      <option value="photography">{t.contact.services.photography}</option>
+                      <option value="web">{t.contact.services.web}</option>
+                      <option value="social">{t.contact.services.social}</option>
+                      <option value="content">{t.contact.services.content}</option>
+                      <option value="marketing">{t.contact.services.marketing}</option>
+                      <option value="all">{t.contact.services.all}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleFormChange}
+                    placeholder={t.contact.messagePlaceholder}
+                    rows={4}
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors resize-none"
+                  />
+                </div>
+
+                {submitError && (
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">
+                    {submitError}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-500/50 text-black font-bold py-4 rounded-xl transition-all hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      {t.contact.sending}
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      {t.contact.submit}
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
 
             {/* Contact Info */}
@@ -1890,7 +1932,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <img src={IMAGES.logo} alt="OroStudios CR" className="h-24 w-auto mb-6" />
+              <img src={IMAGES.logo} alt="Orostudioscr" className="h-24 w-auto mb-6" />
               <p className="text-zinc-400 leading-relaxed">{t.footer.description}</p>
             </div>
 
@@ -1901,10 +1943,6 @@ export default function Home() {
                   <Phone className="w-5 h-5" />
                   +506 6098-2244
                 </a>
-                <a href="mailto:orostudioscr@gmail.com" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
-                  <Mail className="w-5 h-5" />
-                  orostudioscr@gmail.com
-                </a>
                 <a href="mailto:gerencia@orostudioscr.com" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
                   <Mail className="w-5 h-5" />
                   gerencia@orostudioscr.com
@@ -1912,6 +1950,10 @@ export default function Home() {
                 <a href="mailto:gabrielorozco@grupooroz.com" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
                   <Mail className="w-5 h-5" />
                   gabrielorozco@grupooroz.com
+                </a>
+                <a href="mailto:orostudioscr@gmail.com" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
+                  <Mail className="w-5 h-5" />
+                  orostudioscr@gmail.com
                 </a>
                 <div className="flex items-center gap-3 text-zinc-400">
                   <MapPin className="w-5 h-5" />

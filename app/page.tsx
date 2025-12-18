@@ -8,7 +8,9 @@ import {
   ClipboardCheck, RefreshCw, Shield, TrendingUp, Award, 
   DollarSign, Zap, Heart, Star, ArrowRight, Building2, 
   Handshake, Target, Sparkles, Plane, Megaphone, BarChart3,
-  Globe, Network, BadgeCheck, UserCheck
+  Globe, Network, BadgeCheck, UserCheck, Smartphone, Film,
+  Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefcase, Home as HomeIcon,
+  CheckCircle, Search, Clock3, ShieldCheck, Send, Loader2
 } from "lucide-react";
 
 // ============================================
@@ -46,6 +48,7 @@ const translations = {
     nav: {
       offices: "Oficinas",
       services: "Servicios",
+      agency: "Agencia Digital",
       gallery: "Galería",
       process: "Proceso",
       contact: "Contacto",
@@ -257,12 +260,41 @@ const translations = {
       },
     ],
     // CTA
-    cta: {
+    // Contact Form
+    contact: {
+      label: "Contáctenos",
       title1: "¿Listo para hacer crecer",
-      titleHighlight: "su parque",
-      subtitle: "Agende una reunión sin compromiso y descubra cuánto puede generar su parque con nuestro modelo de fotografía profesional.",
-      callNow: "Agendar Reunión",
-      sendEmail: "Enviar Email",
+      titleHighlight: "su negocio",
+      subtitle: "Complete el formulario y nos pondremos en contacto con usted en menos de 24 horas.",
+      namePlaceholder: "Nombre completo",
+      emailPlaceholder: "Correo electrónico",
+      phonePlaceholder: "Teléfono",
+      businessType: "Tipo de negocio",
+      businessTypes: {
+        park: "Parque de aventura",
+        hotel: "Hotel / Hospedaje",
+        restaurant: "Restaurante",
+        tour: "Tour operador",
+        store: "Tienda / Comercio",
+        professional: "Servicios profesionales",
+        realestate: "Bienes raíces",
+        other: "Otro",
+      },
+      servicePlaceholder: "¿Qué servicio le interesa?",
+      services: {
+        photography: "Fotografía para parques",
+        web: "Página web",
+        social: "Gestión de redes sociales",
+        content: "Producción de contenido",
+        marketing: "Marketing digital completo",
+        all: "Todos los servicios",
+      },
+      messagePlaceholder: "Cuéntenos sobre su proyecto o negocio...",
+      submit: "Enviar Mensaje",
+      sending: "Enviando...",
+      successTitle: "¡Mensaje enviado!",
+      successMessage: "Nos pondremos en contacto con usted pronto.",
+      orContact: "O contáctenos directamente",
     },
     // Leaders
     leaders: {
@@ -333,6 +365,37 @@ const translations = {
       option2Items: ["Estrategia de marketing digital completa", "Gestión profesional de redes sociales", "Campañas publicitarias en Meta/Google", "Diseño y branding", "Reportes mensuales de rendimiento"],
       option2Badge: "Premium",
     },
+    // Agency
+    agency: {
+      label: "Agencia Digital",
+      title1: "Llevamos tu negocio al",
+      titleHighlight: "mundo digital",
+      subtitle: "No solo trabajamos con parques de aventura. Ayudamos a cualquier negocio a crecer con páginas web profesionales, gestión de redes sociales y contenido de alta calidad.",
+      pillar1Title: "Páginas Web Profesionales",
+      pillar1Desc: "Diseño moderno, responsive y optimizado para Google. Tu negocio disponible 24/7 con reservas online, integración con WhatsApp y panel fácil de administrar.",
+      pillar2Title: "Gestión de Redes Sociales",
+      pillar2Desc: "Creación de contenido, estrategia de crecimiento, respuesta a clientes y campañas publicitarias. Nos encargamos de todo para que tú te enfoques en tu negocio.",
+      pillar3Title: "Producción de Contenido",
+      pillar3Desc: "Fotografía profesional, video para redes, tomas con dron y edición de alta calidad. Contenido que destaca y genera resultados.",
+      whyWebTitle: "¿Por qué necesita una página web?",
+      whyWeb1Title: "Credibilidad instantánea",
+      whyWeb1Desc: "Los clientes confían más en negocios con presencia web profesional",
+      whyWeb2Title: "Ventas 24/7",
+      whyWeb2Desc: "Su negocio trabaja mientras usted descansa",
+      whyWeb3Title: "Independencia",
+      whyWeb3Desc: "No dependa solo de redes sociales que cambian sus reglas",
+      whyWeb4Title: "Visibilidad en Google",
+      whyWeb4Desc: "Aparezca cuando buscan sus servicios en su zona",
+      businessTypesTitle: "Para todo tipo de negocios",
+      businessTypesSubtitle: "Nuestros servicios digitales están diseñados para impulsar cualquier industria",
+      business1: "Hoteles",
+      business2: "Restaurantes",
+      business3: "Tours",
+      business4: "Tiendas",
+      business5: "Servicios Profesionales",
+      business6: "Bienes Raíces",
+      agencyCta: "Solicitar Cotización",
+    },
     // Leverage
     leverage: {
       label: "Apalancamiento",
@@ -350,7 +413,7 @@ const translations = {
     },
     // Footer
     footer: {
-      description: "Aliados estratégicos en fotografía para parques de aventura. Más de 20 años capturando momentos únicos en Costa Rica.",
+      description: "Aliados estratégicos en fotografía para parques de aventura y agencia digital completa para cualquier negocio. Más de 20 años capturando momentos únicos en Costa Rica.",
       contactTitle: "Contacto",
       socialTitle: "Redes Sociales",
       copyright: "Grupo Oroz CR. Todos los derechos reservados.",
@@ -361,6 +424,7 @@ const translations = {
     nav: {
       offices: "Locations",
       services: "Services",
+      agency: "Digital Agency",
       gallery: "Gallery",
       process: "Process",
       contact: "Contact",
@@ -572,13 +636,41 @@ const translations = {
         description: "Signing of confidentiality agreement, which guarantees: Exclusive use of photographs for the park. Protection of sensitive operation information.",
       },
     ],
-    // CTA
-    cta: {
+    // Contact Form
+    contact: {
+      label: "Contact Us",
       title1: "Ready to grow",
-      titleHighlight: "your park",
-      subtitle: "Schedule a no-obligation meeting and discover how much your park can generate with our professional photography model.",
-      callNow: "Schedule Meeting",
-      sendEmail: "Send Email",
+      titleHighlight: "your business",
+      subtitle: "Fill out the form and we'll get back to you within 24 hours.",
+      namePlaceholder: "Full name",
+      emailPlaceholder: "Email address",
+      phonePlaceholder: "Phone number",
+      businessType: "Business type",
+      businessTypes: {
+        park: "Adventure park",
+        hotel: "Hotel / Lodging",
+        restaurant: "Restaurant",
+        tour: "Tour operator",
+        store: "Store / Retail",
+        professional: "Professional services",
+        realestate: "Real estate",
+        other: "Other",
+      },
+      servicePlaceholder: "What service are you interested in?",
+      services: {
+        photography: "Photography for parks",
+        web: "Website",
+        social: "Social media management",
+        content: "Content production",
+        marketing: "Complete digital marketing",
+        all: "All services",
+      },
+      messagePlaceholder: "Tell us about your project or business...",
+      submit: "Send Message",
+      sending: "Sending...",
+      successTitle: "Message sent!",
+      successMessage: "We'll get back to you soon.",
+      orContact: "Or contact us directly",
     },
     // Leaders
     leaders: {
@@ -649,6 +741,37 @@ const translations = {
       option2Items: ["Complete digital marketing strategy", "Professional social media management", "Advertising campaigns on Meta/Google", "Design and branding", "Monthly performance reports"],
       option2Badge: "Premium",
     },
+    // Agency
+    agency: {
+      label: "Digital Agency",
+      title1: "We take your business to the",
+      titleHighlight: "digital world",
+      subtitle: "We don't just work with adventure parks. We help any business grow with professional websites, social media management, and high-quality content.",
+      pillar1Title: "Professional Websites",
+      pillar1Desc: "Modern, responsive design optimized for Google. Your business available 24/7 with online bookings, WhatsApp integration, and an easy-to-manage dashboard.",
+      pillar2Title: "Social Media Management",
+      pillar2Desc: "Content creation, growth strategy, customer response, and advertising campaigns. We handle everything so you can focus on your business.",
+      pillar3Title: "Content Production",
+      pillar3Desc: "Professional photography, video for social media, drone footage, and high-quality editing. Content that stands out and delivers results.",
+      whyWebTitle: "Why do you need a website?",
+      whyWeb1Title: "Instant credibility",
+      whyWeb1Desc: "Customers trust businesses with a professional web presence more",
+      whyWeb2Title: "Sales 24/7",
+      whyWeb2Desc: "Your business works while you rest",
+      whyWeb3Title: "Independence",
+      whyWeb3Desc: "Don't rely only on social media that changes its rules",
+      whyWeb4Title: "Google visibility",
+      whyWeb4Desc: "Appear when people search for your services in your area",
+      businessTypesTitle: "For all types of businesses",
+      businessTypesSubtitle: "Our digital services are designed to boost any industry",
+      business1: "Hotels",
+      business2: "Restaurants",
+      business3: "Tours",
+      business4: "Stores",
+      business5: "Professional Services",
+      business6: "Real Estate",
+      agencyCta: "Request Quote",
+    },
     // Leverage
     leverage: {
       label: "Leverage",
@@ -666,7 +789,7 @@ const translations = {
     },
     // Footer
     footer: {
-      description: "Strategic partners in photography for adventure parks. More than 20 years capturing unique moments in Costa Rica.",
+      description: "Strategic partners in photography for adventure parks and full-service digital agency for any business. More than 20 years capturing unique moments in Costa Rica.",
       contactTitle: "Contact",
       socialTitle: "Social Media",
       copyright: "Grupo Oroz CR. All rights reserved.",
@@ -677,6 +800,9 @@ const translations = {
 const processIcons = [Wrench, Camera, Target];
 const equipmentIcons = [Monitor, Shirt, HardHat, FileCheck, GraduationCap, Lock];
 
+// Business type icons for agency section
+const businessTypeIcons = [Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefcase, HomeIcon];
+
 // ============================================
 // COMPONENT
 // ============================================
@@ -685,6 +811,49 @@ export default function Home() {
   const [activePark, setActivePark] = useState("ama");
   const [lang, setLang] = useState<Lang>("es");
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Contact form states
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    service: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission - replace with actual API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Here you would send the data to your backend or email service
+    console.log("Form submitted:", formData);
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        businessType: "",
+        service: "",
+        message: "",
+      });
+    }, 3000);
+  };
 
   useEffect(() => {
     if (videoRef.current) {
@@ -696,6 +865,16 @@ export default function Home() {
   const currentPark = t.parks.find(p => p.id === activePark) || t.parks[0];
   const parkImages = { ecoglide: IMAGES.ecoglide, skyline: IMAGES.skyline, ama: IMAGES.ama, poas: IMAGES.poas };
   const galleryImageSrcs = [IMAGES.gallery1, IMAGES.gallery2, IMAGES.gallery3, IMAGES.gallery4, IMAGES.gallery5, IMAGES.gallery6];
+
+  // Business types for agency section
+  const businessTypes = [
+    t.agency.business1,
+    t.agency.business2,
+    t.agency.business3,
+    t.agency.business4,
+    t.agency.business5,
+    t.agency.business6,
+  ];
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
@@ -800,24 +979,18 @@ export default function Home() {
       {/* ==================== A COMPANY BY ==================== */}
       <section id="company" className="py-16 px-4 bg-gradient-to-b from-zinc-950 to-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
-          <div className="relative bg-zinc-900/60 backdrop-blur-xl border border-orange-500/20 rounded-3xl px-12 py-10 shadow-2xl shadow-orange-500/5">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent rounded-3xl" />
-            
-            {/* Content */}
-            <div className="relative flex flex-col items-center gap-6">
-              <div className="flex items-center gap-4">
-                <div className="h-px w-8 bg-gradient-to-r from-transparent to-orange-500/50" />
-                <span className="text-zinc-400 text-xs tracking-[0.3em] uppercase font-medium">A company by</span>
-                <div className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/50" />
-              </div>
-              
-              <img 
-                src={IMAGES.grupoOroz} 
-                alt="Grupo Oroz" 
-                className="h-32 sm:h-40 w-auto"
-              />
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex items-center gap-4">
+              <div className="h-px w-8 bg-gradient-to-r from-transparent to-orange-500/50" />
+              <span className="text-zinc-400 text-xs tracking-[0.3em] uppercase font-medium">A company by</span>
+              <div className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/50" />
             </div>
+            
+            <img 
+              src={IMAGES.grupoOroz} 
+              alt="Grupo Oroz" 
+              className="h-32 sm:h-40 w-auto"
+            />
           </div>
         </div>
       </section>
@@ -1131,6 +1304,115 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== DIGITAL AGENCY ==================== */}
+      <section id="agency" className="py-24 px-4 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.agency.label}</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
+              {t.agency.title1}{" "}
+              <span className="text-orange-500">{t.agency.titleHighlight}</span>
+            </h2>
+            <p className="text-zinc-400 text-lg mt-6 max-w-3xl mx-auto">{t.agency.subtitle}</p>
+          </div>
+
+          {/* Three Pillars */}
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* Pillar 1: Websites */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-orange-500/30 transition-all group">
+              <div className="w-16 h-16 bg-orange-500/10 group-hover:bg-orange-500 rounded-2xl flex items-center justify-center mb-6 transition-colors">
+                <Globe className="w-8 h-8 text-orange-500 group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{t.agency.pillar1Title}</h3>
+              <p className="text-zinc-400 leading-relaxed">{t.agency.pillar1Desc}</p>
+            </div>
+
+            {/* Pillar 2: Social Media */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-orange-500/30 transition-all group">
+              <div className="w-16 h-16 bg-orange-500/10 group-hover:bg-orange-500 rounded-2xl flex items-center justify-center mb-6 transition-colors">
+                <Smartphone className="w-8 h-8 text-orange-500 group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{t.agency.pillar2Title}</h3>
+              <p className="text-zinc-400 leading-relaxed">{t.agency.pillar2Desc}</p>
+            </div>
+
+            {/* Pillar 3: Content Production */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-orange-500/30 transition-all group">
+              <div className="w-16 h-16 bg-orange-500/10 group-hover:bg-orange-500 rounded-2xl flex items-center justify-center mb-6 transition-colors">
+                <Film className="w-8 h-8 text-orange-500 group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{t.agency.pillar3Title}</h3>
+              <p className="text-zinc-400 leading-relaxed">{t.agency.pillar3Desc}</p>
+            </div>
+          </div>
+
+          {/* Why You Need a Website */}
+          <div className="bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-3xl p-8 md:p-12 mb-20">
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">{t.agency.whyWebTitle}</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <ShieldCheck className="w-7 h-7 text-black" />
+                </div>
+                <h4 className="text-lg font-bold mb-2">{t.agency.whyWeb1Title}</h4>
+                <p className="text-zinc-400 text-sm">{t.agency.whyWeb1Desc}</p>
+              </div>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Clock3 className="w-7 h-7 text-black" />
+                </div>
+                <h4 className="text-lg font-bold mb-2">{t.agency.whyWeb2Title}</h4>
+                <p className="text-zinc-400 text-sm">{t.agency.whyWeb2Desc}</p>
+              </div>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-7 h-7 text-black" />
+                </div>
+                <h4 className="text-lg font-bold mb-2">{t.agency.whyWeb3Title}</h4>
+                <p className="text-zinc-400 text-sm">{t.agency.whyWeb3Desc}</p>
+              </div>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-7 h-7 text-black" />
+                </div>
+                <h4 className="text-lg font-bold mb-2">{t.agency.whyWeb4Title}</h4>
+                <p className="text-zinc-400 text-sm">{t.agency.whyWeb4Desc}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Types */}
+          <div className="text-center">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">{t.agency.businessTypesTitle}</h3>
+            <p className="text-zinc-400 mb-12">{t.agency.businessTypesSubtitle}</p>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+              {businessTypes.map((business, index) => {
+                const Icon = businessTypeIcons[index];
+                return (
+                  <div
+                    key={index}
+                    className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 hover:border-orange-500/30 transition-all group"
+                  >
+                    <Icon className="w-8 h-8 text-orange-500 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <span className="text-zinc-300 text-sm font-medium">{business}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
+            >
+              <Mail className="w-5 h-5" />
+              {t.agency.agencyCta}
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== OFFICES ==================== */}
       <section id="offices" className="py-24 px-4 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
@@ -1252,68 +1534,6 @@ export default function Home() {
                   <span className="text-zinc-300">{t.services.personalAttention}</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== HOW IT WORKS ==================== */}
-      <section className="py-24 px-4 bg-zinc-900/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.howItWorks.label}</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
-              {t.howItWorks.title1}{" "}
-              <span className="text-orange-500">{t.howItWorks.titleHighlight}</span>
-              {t.howItWorks.title2}
-            </h2>
-            <p className="text-zinc-400 text-lg mt-6 max-w-3xl mx-auto">{t.howItWorks.subtitle}</p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-500/50 to-orange-500 -translate-x-1/2" />
-
-            <div className="space-y-12 lg:space-y-24">
-              {t.howItWorks.steps.map((step, index) => {
-                const images = [IMAGES.hero, IMAGES.horizontal2, IMAGES.horizontal3, IMAGES.canopyEco, IMAGES.ama];
-                const isEven = index % 2 === 0;
-                
-                return (
-                  <div key={step.number} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
-                    {/* Image */}
-                    <div className="w-full lg:w-5/12">
-                      <div className="rounded-2xl overflow-hidden aspect-video">
-                        <img 
-                          src={images[index]} 
-                          alt={step.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Timeline dot */}
-                    <div className="hidden lg:flex w-2/12 justify-center">
-                      <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-black font-bold text-xl shadow-lg shadow-orange-500/30">
-                        {step.number}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="w-full lg:w-5/12">
-                      <div className={`bg-zinc-900 border border-zinc-800 rounded-2xl p-8 ${isEven ? 'lg:text-left' : 'lg:text-right'}`}>
-                        <div className={`flex items-center gap-4 mb-4 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-                          <span className="lg:hidden w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-black font-bold">
-                            {step.number}
-                          </span>
-                          <h3 className="text-2xl font-bold">{step.title}</h3>
-                        </div>
-                        <p className="text-zinc-400 text-lg leading-relaxed">{step.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>
@@ -1458,46 +1678,215 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== CTA ==================== */}
-      <section className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={IMAGES.horizontal3} alt="Background" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-zinc-950" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Zero Risk Reminder */}
-          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 mb-8">
-            <Shield className="w-4 h-4 text-green-500" />
-            <span className="text-green-500 text-sm font-medium">0% {lang === "es" ? "riesgo para su parque" : "risk for your park"}</span>
+      {/* ==================== CONTACT FORM ==================== */}
+      <section id="contact" className="py-24 px-4 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.contact.label}</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
+              {t.contact.title1}{" "}
+              <span className="text-orange-500">{t.contact.titleHighlight}</span>?
+            </h2>
+            <p className="text-zinc-400 text-lg mt-6 max-w-2xl mx-auto">{t.contact.subtitle}</p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            {t.cta.title1}{" "}
-            <span className="text-orange-500">{t.cta.titleHighlight}</span>?
-          </h2>
-          <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto">{t.cta.subtitle}</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="tel:+50660982244"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105"
-            >
-              <Phone className="w-5 h-5" />
-              {t.cta.callNow}
-            </a>
-            <a
-              href="mailto:gerencia@orostudioscr.com?subject=Solicitud de reunión - Parque de aventura"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 border border-zinc-600 hover:border-orange-500 text-white font-semibold px-8 py-4 rounded-full transition-all hover:bg-orange-500/10"
-            >
-              <Mail className="w-5 h-5" />
-              {t.cta.sendEmail}
-            </a>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Contact Form */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-green-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{t.contact.successTitle}</h3>
+                  <p className="text-zinc-400">{t.contact.successMessage}</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleFormChange}
+                        placeholder={t.contact.namePlaceholder}
+                        required
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleFormChange}
+                        placeholder={t.contact.emailPlaceholder}
+                        required
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleFormChange}
+                      placeholder={t.contact.phonePlaceholder}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors"
+                    />
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <select
+                        name="businessType"
+                        value={formData.businessType}
+                        onChange={handleFormChange}
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
+                      >
+                        <option value="" className="text-zinc-500">{t.contact.businessType}</option>
+                        <option value="park">{t.contact.businessTypes.park}</option>
+                        <option value="hotel">{t.contact.businessTypes.hotel}</option>
+                        <option value="restaurant">{t.contact.businessTypes.restaurant}</option>
+                        <option value="tour">{t.contact.businessTypes.tour}</option>
+                        <option value="store">{t.contact.businessTypes.store}</option>
+                        <option value="professional">{t.contact.businessTypes.professional}</option>
+                        <option value="realestate">{t.contact.businessTypes.realestate}</option>
+                        <option value="other">{t.contact.businessTypes.other}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleFormChange}
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors appearance-none cursor-pointer"
+                      >
+                        <option value="" className="text-zinc-500">{t.contact.servicePlaceholder}</option>
+                        <option value="photography">{t.contact.services.photography}</option>
+                        <option value="web">{t.contact.services.web}</option>
+                        <option value="social">{t.contact.services.social}</option>
+                        <option value="content">{t.contact.services.content}</option>
+                        <option value="marketing">{t.contact.services.marketing}</option>
+                        <option value="all">{t.contact.services.all}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleFormChange}
+                      placeholder={t.contact.messagePlaceholder}
+                      rows={4}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500 transition-colors resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-500/50 text-black font-bold py-4 rounded-xl transition-all hover:scale-[1.02] disabled:hover:scale-100 flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        {t.contact.sending}
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        {t.contact.submit}
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">{t.contact.orContact}</h3>
+                <div className="space-y-4">
+                  <a 
+                    href="tel:+50660982244" 
+                    className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group"
+                  >
+                    <div className="w-12 h-12 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
+                      <Phone className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-zinc-400 text-sm">WhatsApp / Teléfono</p>
+                      <p className="text-white font-semibold">+506 6098-2244</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="mailto:gerencia@orostudioscr.com" 
+                    className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group"
+                  >
+                    <div className="w-12 h-12 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
+                      <Mail className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-zinc-400 text-sm">Email</p>
+                      <p className="text-white font-semibold">gerencia@orostudioscr.com</p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+                    <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-orange-500" />
+                    </div>
+                    <div>
+                      <p className="text-zinc-400 text-sm">{lang === "es" ? "Ubicación" : "Location"}</p>
+                      <p className="text-white font-semibold">San Carlos, Alajuela, Costa Rica</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media */}
+              <div className="bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6">
+                <h4 className="font-bold mb-4">{lang === "es" ? "Síguenos en redes" : "Follow us"}</h4>
+                <div className="flex items-center gap-4">
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group"
+                  >
+                    <Instagram className="w-5 h-5 text-zinc-400 group-hover:text-black" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group"
+                  >
+                    <Facebook className="w-5 h-5 text-zinc-400 group-hover:text-black" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Zero Risk Badge */}
+              <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-6 text-center">
+                <Shield className="w-10 h-10 text-green-500 mx-auto mb-3" />
+                <p className="text-green-500 font-bold text-lg">0% {lang === "es" ? "RIESGO PARA SU NEGOCIO" : "RISK FOR YOUR BUSINESS"}</p>
+                <p className="text-zinc-400 text-sm mt-2">
+                  {lang === "es" 
+                    ? "Consulta sin compromiso. Sin costos ocultos."
+                    : "Free consultation. No hidden costs."}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ==================== FOOTER ==================== */}
-      <footer id="contact" className="bg-zinc-900 border-t border-zinc-800 py-16 px-4">
+      <footer className="bg-zinc-900 border-t border-zinc-800 py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>

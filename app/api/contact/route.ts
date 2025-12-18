@@ -32,11 +32,11 @@ export async function POST(request: Request) {
     const businessTypeText = businessTypeLabels[businessType] || businessType || 'No especificado';
     const serviceText = serviceLabels[service] || service || 'No especificado';
 
-    // 1. Correo a gabriel con CC a gmail
+    // 1. Correo a gmail con CC a gabrielorozco
     await resend.emails.send({
       from: 'Orostudioscr <gerencia@orostudioscr.com>',
-      to: 'gabriel@grupooroz.com',
-      cc: 'orostudioscr@gmail.com',
+      to: 'orostudioscr@gmail.com',
+      cc: 'gabrielorozco@grupooroz.com',
       replyTo: email,
       subject: `Nuevo contacto: ${name} - ${serviceText}`,
       html: `

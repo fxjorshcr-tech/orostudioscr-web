@@ -32,10 +32,10 @@ export async function POST(request: Request) {
     const businessTypeText = businessTypeLabels[businessType] || businessType || 'No especificado';
     const serviceText = serviceLabels[service] || service || 'No especificado';
 
-    // 1. Correo a gerencia con CC a gmail
+    // 1. Correo a gabriel con CC a gmail
     await resend.emails.send({
       from: 'Orostudioscr <gerencia@orostudioscr.com>',
-      to: 'gerencia@orostudioscr.com',
+      to: 'gabriel@grupooroz.com',
       cc: 'orostudioscr@gmail.com',
       replyTo: email,
       subject: `Nuevo contacto: ${name} - ${serviceText}`,
@@ -115,7 +115,7 @@ export async function POST(request: Request) {
             
             <div style="margin: 20px 0;">
               <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📞 WhatsApp:</span> <a href="https://wa.me/50660982244" style="color: #f97316; text-decoration: none;">+506 6098-2244</a></p>
-              <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📧 Email:</span> <a href="mailto:gerencia@orostudioscr.com" style="color: #f97316; text-decoration: none;">gerencia@orostudioscr.com</a></p>
+              <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📧 Email:</span> <a href="mailto:orostudioscr@gmail.com" style="color: #f97316; text-decoration: none;">orostudioscr@gmail.com</a></p>
             </div>
             
             <p style="color: #a1a1aa;">¡Gracias por tu interés en Orostudioscr!</p>

@@ -70,7 +70,7 @@ const translations = {
       label: "Nuestros Servicios",
       title1: "Soluciones completas en",
       titleHighlight: "contenido y marketing digital",
-      subtitle: "Desde fotografía profesional hasta presencia digital completa. Todo lo que tu negocio necesita para destacar.",
+      subtitle: "Fotografía, páginas web y redes sociales con un mismo equipo. Sin intermediarios ni subcontratos.",
       services: [
         {
           id: "parks",
@@ -163,7 +163,7 @@ const translations = {
       // Offices
       officesLabel: "Nuestras Oficinas",
       officesTitle: "Presencia permanente en parques de Costa Rica",
-      officesSubtitle: "Nuestra filosofía combina tecnología de vanguardia, procesos optimizados, y un equipo humano altamente capacitado.",
+      officesSubtitle: "Cámaras profesionales, personal fijo en cada parque y entrega en menos de 24 horas. Así trabajamos, todos los días del año.",
       quality: "Recuerdos de calidad",
       reliable: "Servicio confiable",
       // Benefits
@@ -196,7 +196,7 @@ const translations = {
         "Entrega del material en un plazo máximo de 24 horas",
       ],
       selectiveTitle: "Trabajamos con parques selectos",
-      selectiveText: "Actualmente aceptando nuevos socios estratégicos para 2025. Nuestro modelo exclusivo garantiza atención personalizada y resultados comprobados.",
+      selectiveText: "Estamos abriendo cupos para nuevos parques en 2026. Trabajamos con pocos socios a la vez para garantizar atención directa y resultados medibles.",
       ctaParks: "Solicitar Información",
     },
     parksList: [
@@ -223,6 +223,34 @@ const translations = {
         name: "Poas Adventure Park",
         location: "Poás, Alajuela",
         description: "Inmortaliza tu conexión con el volcán y la selva tropical.",
+        comingSoon: true,
+      },
+      {
+        id: "blackstallion",
+        name: "Black Stallion",
+        location: "Tamarindo, Guanacaste",
+        description: "Cabalgatas y aventura entre las playas y el bosque seco de Tamarindo. Estamos abriendo operación en este parque.",
+        comingSoon: true,
+      },
+      {
+        id: "attica",
+        name: "Attica Canopy Tour",
+        location: "La Fortuna de San Carlos",
+        description: "Otro canopy en La Fortuna donde llevaremos nuestro servicio fotográfico permanente. Próxima apertura.",
+        comingSoon: true,
+      },
+      {
+        id: "fourseasons",
+        name: "Four Seasons Adventure Park",
+        location: "Península Papagayo, Guanacaste",
+        description: "Aventura de primera categoría en Papagayo. Sumamos presencia de Orostudioscr muy pronto.",
+        comingSoon: true,
+      },
+      {
+        id: "brisas",
+        name: "Brisas de la Jungla",
+        location: "Limón",
+        description: "Naturaleza caribeña en estado puro. Llevamos nuestra fotografía profesional a Limón próximamente.",
         comingSoon: true,
       },
     ],
@@ -400,7 +428,7 @@ const translations = {
       label: "Our Services",
       title1: "Complete solutions in",
       titleHighlight: "content and digital marketing",
-      subtitle: "From professional photography to complete digital presence. Everything your business needs to stand out.",
+      subtitle: "Photography, websites and social media from a single team. No middlemen, no outsourcing.",
       services: [
         {
           id: "parks",
@@ -493,7 +521,7 @@ const translations = {
       // Offices
       officesLabel: "Our Locations",
       officesTitle: "Permanent presence in Costa Rica parks",
-      officesSubtitle: "Our philosophy combines cutting-edge technology, optimized processes, and a highly trained human team.",
+      officesSubtitle: "Professional cameras, permanent on-site staff and delivery in under 24 hours. That's how we work, every day of the year.",
       quality: "Quality memories",
       reliable: "Reliable service",
       // Benefits
@@ -526,7 +554,7 @@ const translations = {
         "Material delivery within a maximum of 24 hours",
       ],
       selectiveTitle: "We work with select parks",
-      selectiveText: "Currently accepting new strategic partners for 2025. Our exclusive model guarantees personalized attention and proven results.",
+      selectiveText: "We're opening spots for new parks in 2026. We work with only a few partners at a time to guarantee direct attention and measurable results.",
       ctaParks: "Request Information",
     },
     parksList: [
@@ -553,6 +581,34 @@ const translations = {
         name: "Poas Adventure Park",
         location: "Poás, Alajuela",
         description: "Immortalize your connection with the volcano and the tropical jungle.",
+        comingSoon: true,
+      },
+      {
+        id: "blackstallion",
+        name: "Black Stallion",
+        location: "Tamarindo, Guanacaste",
+        description: "Horseback rides and adventure between the beaches and dry forest of Tamarindo. We're opening operations at this park.",
+        comingSoon: true,
+      },
+      {
+        id: "attica",
+        name: "Attica Canopy Tour",
+        location: "La Fortuna de San Carlos",
+        description: "Another canopy in La Fortuna where we'll bring our permanent photography service. Opening soon.",
+        comingSoon: true,
+      },
+      {
+        id: "fourseasons",
+        name: "Four Seasons Adventure Park",
+        location: "Papagayo Peninsula, Guanacaste",
+        description: "First-class adventure in Papagayo. Orostudioscr presence coming very soon.",
+        comingSoon: true,
+      },
+      {
+        id: "brisas",
+        name: "Brisas de la Jungla",
+        location: "Limón",
+        description: "Caribbean nature at its purest. We're bringing our professional photography to Limón soon.",
         comingSoon: true,
       },
     ],
@@ -1014,10 +1070,17 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="relative rounded-2xl overflow-hidden aspect-video">
-                <img src={parkImages[currentPark.id]} alt={currentPark.name} className="w-full h-full object-cover" />
+                {parkImages[currentPark.id] ? (
+                  <img src={parkImages[currentPark.id]} alt={currentPark.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center gap-3">
+                    <Building2 className="w-12 h-12 text-orange-500/60" />
+                    <span className="text-zinc-500 text-sm px-4 text-center">{currentPark.location}</span>
+                  </div>
+                )}
                 {"comingSoon" in currentPark && currentPark.comingSoon && (
-                  <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                    <span className="bg-orange-500 text-black font-bold px-6 py-3 rounded-full text-lg">Coming Soon 2026</span>
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <span className="bg-orange-500 text-black font-bold px-6 py-3 rounded-full text-lg">{lang === "es" ? "Próximamente" : "Coming Soon"}</span>
                   </div>
                 )}
               </div>

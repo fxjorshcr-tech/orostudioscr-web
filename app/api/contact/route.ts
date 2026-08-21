@@ -114,7 +114,7 @@ export async function POST(request: Request) {
             </p>
             
             <div style="margin: 20px 0;">
-              <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📞 WhatsApp:</span> <a href="https://wa.me/50660982244" style="color: #f97316; text-decoration: none;">+506 6098-2244</a></p>
+              <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📞 WhatsApp:</span> <a href="https://wa.me/50661752273" style="color: #f97316; text-decoration: none;">+506 6175-2273</a></p>
               <p style="margin: 8px 0;"><span style="color: #a1a1aa;">📧 Email:</span> <a href="mailto:orostudioscr@gmail.com" style="color: #f97316; text-decoration: none;">orostudioscr@gmail.com</a></p>
             </div>
             

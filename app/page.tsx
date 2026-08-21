@@ -1,18 +1,17 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { 
-  Camera, Video, Clock, Users, Check, Phone, Mail, MapPin, 
-  Instagram, Facebook, Monitor, Shirt, HardHat, FileCheck, 
-  GraduationCap, Lock, Wrench, HeadphonesIcon,
-  ClipboardCheck, RefreshCw, Shield, TrendingUp, Award, 
-  DollarSign, Zap, Heart, Star, ArrowRight, Building2, 
+import {
+  Camera, Clock, Check, Phone, Mail, MapPin,
+  Instagram, Facebook, Monitor, Shirt, HardHat, FileCheck,
+  GraduationCap, Lock, Shield, TrendingUp, Award,
+  DollarSign, Zap, Heart, Star, ArrowRight, Building2,
   Handshake, Target, Sparkles, Plane, Megaphone, BarChart3,
-  Globe, Network, BadgeCheck, UserCheck, Smartphone, Film,
+  Globe, Smartphone, Film,
   Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefcase, Home as HomeIcon,
   CheckCircle, Search, Clock3, ShieldCheck, Send, Loader2, X,
-  PartyPopper, Cake, GlassWater, Church, Music, Aperture,
-  ChevronDown, Play, Palette, PenTool, MessageCircle
+  PartyPopper, Cake, GlassWater, Church,
+  ChevronDown, PenTool, MessageCircle, Menu, ArrowUp
 } from "lucide-react";
 
 // ============================================
@@ -37,6 +36,20 @@ const IMAGES = {
   skyline: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/skyline-oficina.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9za3lsaW5lLW9maWNpbmEud2VicCIsImlhdCI6MTc2NTM3OTE3MCwiZXhwIjoxNzk2OTE1MTcwfQ.GDBP76-wL0YKrv_KxN_rXuUkZG0zvzjK_-IGCoRtT04",
   ama: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/oficina-ama-cr.jpeg",
   poas: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/poas-adventure-park.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9wb2FzLWFkdmVudHVyZS1wYXJrLndlYnAiLCJpYXQiOjE3NjUzNzkxMjUsImV4cCI6MTc5NjkxNTEyNX0.WCytgZ_KWoXIcKDfqlptpaRY2LlodAlMrT-IJlzvuLg",
+  blackstallion: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/sign/logos-oroz/black.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iZmNkZjM3My00NzkzLTRhYjQtYmRhOC04OWY1ZmNiMjdhMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy1vcm96L2JsYWNrLmpwZWciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg3MzIyOTI0LCJleHAiOjE4MTg4NTg5MjR9.PWzm0Hj8EMBuGZtq0sR7pczuji4zjiU6MTuHIBY0saM",
+  attica: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/sign/logos-oroz/atica%202.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iZmNkZjM3My00NzkzLTRhYjQtYmRhOC04OWY1ZmNiMjdhMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy1vcm96L2F0aWNhIDIuanBlZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODczMjM1OTEsImV4cCI6MTgxODg1OTU5MX0.9Wvaml2N1zd7LcLJKKx6jcjg87zhLrcl1e7OAU_ti5Y",
+};
+
+// ============================================
+// CONTACT (single source of truth)
+// ============================================
+const CONTACT = {
+  phoneDisplay: "+506 6175-2273",
+  phoneHref: "tel:+50661752273",
+  whatsapp: "https://wa.me/50661752273",
+  email: "gerencia@orostudioscr.com",
+  instagram: "https://www.instagram.com/orostudioscr",
+  facebook: "https://www.facebook.com/orostudioscr",
 };
 
 // ============================================
@@ -120,7 +133,6 @@ const translations = {
       stat1Label: "En Costa Rica",
       stat2Value: "20+",
       stat2Label: "Años de experiencia",
-      stat3Value: "4",
       stat3Label: "Parques activos",
       stat4Value: "18+",
       stat4Label: "Parques atendidos",
@@ -166,6 +178,12 @@ const translations = {
       officesSubtitle: "Cámaras profesionales, personal fijo en cada parque y entrega en menos de 24 horas. Así trabajamos, todos los días del año.",
       quality: "Recuerdos de calidad",
       reliable: "Servicio confiable",
+      officesActiveTitle: "Oficinas en operación",
+      officesActiveSubtitle: "Personal fijo, equipo instalado y entrega el mismo día. Estas oficinas ya están trabajando.",
+      officesSoonTitle: "Próximas aperturas",
+      officesSoonSubtitle: "Parques donde ya estamos preparando la instalación de nuestra oficina fotográfica.",
+      badgeActive: "En operación",
+      badgeSoon: "Próximamente",
       // Benefits
       benefitsTitle: "Beneficios para el parque",
       benefitsList: [
@@ -204,54 +222,57 @@ const translations = {
         id: "ama",
         name: "Arenal Mundo Aventura",
         location: "La Fortuna de San Carlos",
+        status: "active",
+        since: "Oficina permanente",
         description: "La naturaleza y la aventura se fusionan en cada toma. Revive tu recorrido por los cañones y cascadas con fotografías profesionales.",
       },
       {
         id: "ecoglide",
         name: "Ecoglide Arenal Park",
         location: "La Fortuna de San Carlos",
+        status: "active",
+        since: "Oficina permanente",
         description: "Capturamos la emoción pura del canopy entre el verde intenso del Volcán Arenal.",
       },
       {
         id: "skyline",
         name: "Skyline Canopy Tour",
         location: "Santa Cruz, Guanacaste",
+        status: "active",
+        since: "Oficina permanente",
         description: "Altura, velocidad y paisajes impresionantes. Nuestro equipo captura cada salto y sonrisa.",
-      },
-      {
-        id: "poas",
-        name: "Poas Adventure Park",
-        location: "Poás, Alajuela",
-        description: "Inmortaliza tu conexión con el volcán y la selva tropical.",
-        comingSoon: true,
       },
       {
         id: "blackstallion",
         name: "Black Stallion",
         location: "Tamarindo, Guanacaste",
-        description: "Cabalgatas y aventura entre las playas y el bosque seco de Tamarindo. Estamos abriendo operación en este parque.",
-        comingSoon: true,
+        status: "active",
+        since: "Oficina permanente",
+        description: "Cabalgatas y aventura entre las playas y el bosque seco de Tamarindo. Nuestra oficina ya opera dentro del parque con personal fijo.",
       },
       {
         id: "attica",
         name: "Attica Canopy Tour",
         location: "La Fortuna de San Carlos",
-        description: "Otro canopy en La Fortuna donde llevaremos nuestro servicio fotográfico permanente. Próxima apertura.",
-        comingSoon: true,
+        status: "active",
+        since: "Oficina permanente",
+        description: "Canopy sobre el bosque de La Fortuna. Oficina montada y equipo fotográfico trabajando todos los días.",
       },
       {
-        id: "fourseasons",
-        name: "Four Seasons Adventure Park",
-        location: "Península Papagayo, Guanacaste",
-        description: "Aventura de primera categoría en Papagayo. Sumamos presencia de Orostudioscr muy pronto.",
-        comingSoon: true,
+        id: "poas",
+        name: "Poas Adventure Park",
+        location: "Poás, Alajuela",
+        status: "soon",
+        since: "En preparación",
+        description: "Inmortaliza tu conexión con el volcán y la selva tropical. Estamos alistando la apertura de esta oficina.",
       },
       {
         id: "brisas",
         name: "Brisas de la Jungla",
         location: "Limón",
+        status: "soon",
+        since: "En preparación",
         description: "Naturaleza caribeña en estado puro. Llevamos nuestra fotografía profesional a Limón próximamente.",
-        comingSoon: true,
       },
     ],
     // Agency
@@ -478,7 +499,6 @@ const translations = {
       stat1Label: "In Costa Rica",
       stat2Value: "20+",
       stat2Label: "Years of experience",
-      stat3Value: "4",
       stat3Label: "Active parks",
       stat4Value: "18+",
       stat4Label: "Parks served",
@@ -524,6 +544,12 @@ const translations = {
       officesSubtitle: "Professional cameras, permanent on-site staff and delivery in under 24 hours. That's how we work, every day of the year.",
       quality: "Quality memories",
       reliable: "Reliable service",
+      officesActiveTitle: "Offices in operation",
+      officesActiveSubtitle: "Permanent staff, installed equipment and same-day delivery. These offices are already running.",
+      officesSoonTitle: "Opening soon",
+      officesSoonSubtitle: "Parks where we are already preparing the setup of our photography office.",
+      badgeActive: "In operation",
+      badgeSoon: "Coming soon",
       // Benefits
       benefitsTitle: "Benefits for the park",
       benefitsList: [
@@ -562,54 +588,57 @@ const translations = {
         id: "ama",
         name: "Arenal Mundo Aventura",
         location: "La Fortuna de San Carlos",
+        status: "active",
+        since: "Permanent office",
         description: "Nature and adventure merge in every shot. Relive your journey through the canyons and waterfalls with professional photographs.",
       },
       {
         id: "ecoglide",
         name: "Ecoglide Arenal Park",
         location: "La Fortuna de San Carlos",
+        status: "active",
+        since: "Permanent office",
         description: "We capture the pure emotion of the canopy among the intense green of Arenal Volcano.",
       },
       {
         id: "skyline",
         name: "Skyline Canopy Tour",
         location: "Santa Cruz, Guanacaste",
+        status: "active",
+        since: "Permanent office",
         description: "Height, speed and impressive landscapes. Our team captures every jump and smile.",
-      },
-      {
-        id: "poas",
-        name: "Poas Adventure Park",
-        location: "Poás, Alajuela",
-        description: "Immortalize your connection with the volcano and the tropical jungle.",
-        comingSoon: true,
       },
       {
         id: "blackstallion",
         name: "Black Stallion",
         location: "Tamarindo, Guanacaste",
-        description: "Horseback rides and adventure between the beaches and dry forest of Tamarindo. We're opening operations at this park.",
-        comingSoon: true,
+        status: "active",
+        since: "Permanent office",
+        description: "Horseback rides and adventure between the beaches and dry forest of Tamarindo. Our office is already running inside the park with dedicated staff.",
       },
       {
         id: "attica",
         name: "Attica Canopy Tour",
         location: "La Fortuna de San Carlos",
-        description: "Another canopy in La Fortuna where we'll bring our permanent photography service. Opening soon.",
-        comingSoon: true,
+        status: "active",
+        since: "Permanent office",
+        description: "Canopy over the forest of La Fortuna. Office set up and our photography team working every day.",
       },
       {
-        id: "fourseasons",
-        name: "Four Seasons Adventure Park",
-        location: "Papagayo Peninsula, Guanacaste",
-        description: "First-class adventure in Papagayo. Orostudioscr presence coming very soon.",
-        comingSoon: true,
+        id: "poas",
+        name: "Poas Adventure Park",
+        location: "Poás, Alajuela",
+        status: "soon",
+        since: "In preparation",
+        description: "Immortalize your connection with the volcano and the tropical jungle. We are getting this office ready to open.",
       },
       {
         id: "brisas",
         name: "Brisas de la Jungla",
         location: "Limón",
+        status: "soon",
+        since: "In preparation",
         description: "Caribbean nature at its purest. We're bringing our professional photography to Limón soon.",
-        comingSoon: true,
       },
     ],
     // Agency
@@ -789,11 +818,15 @@ const businessTypeIcons = [Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefca
 // ============================================
 export default function Home() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
-  const [activePark, setActivePark] = useState("ama");
   const [lang, setLang] = useState<Lang>("es");
   const [galleryFilter, setGalleryFilter] = useState("all");
   const [expandedParksSection, setExpandedParksSection] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
   const videoRef = useRef<HTMLVideoElement>(null);
+
   
   // Contact form states
   const [formData, setFormData] = useState({
@@ -828,7 +861,7 @@ export default function Home() {
 
       setShowSuccessModal(true);
       setFormData({ name: "", email: "", phone: "", businessType: "", service: "", message: "" });
-    } catch (error) {
+    } catch {
       setSubmitError(lang === "es" ? "Error al enviar el mensaje. Por favor intente de nuevo." : "Error sending message. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -841,9 +874,105 @@ export default function Home() {
     if (videoRef.current) videoRef.current.playbackRate = 1;
   }, []);
 
+  // Restore the visitor's last language choice
+  useEffect(() => {
+    const saved = window.localStorage.getItem("oros-lang");
+    if (saved === "es" || saved === "en") setLang(saved);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("oros-lang", lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  // Scroll progress bar + condensed nav background
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+      setScrolled(window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Highlight the nav link for the section currently on screen
+  useEffect(() => {
+    const ids = ["services", "parks", "agency", "gallery", "events", "contact"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  // Reveal-on-scroll for anything marked with .reveal
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, [lang, expandedParksSection, galleryFilter]);
+
+  // Lock the page behind the mobile menu, and close overlays with Escape
+  useEffect(() => {
+    const overlayOpen = menuOpen || activeImage !== null || showSuccessModal;
+    document.body.style.overflow = overlayOpen ? "hidden" : "";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      setActiveImage(null);
+      setShowSuccessModal(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen, activeImage, showSuccessModal]);
+
   const t = translations[lang];
-  const currentPark = t.parksList.find(p => p.id === activePark) || t.parksList[0];
-  const parkImages: Record<string, string> = { ecoglide: IMAGES.ecoglide, skyline: IMAGES.skyline, ama: IMAGES.ama, poas: IMAGES.poas };
+
+  const parkImages: Record<string, string> = {
+    ecoglide: IMAGES.ecoglide,
+    skyline: IMAGES.skyline,
+    ama: IMAGES.ama,
+    poas: IMAGES.poas,
+    blackstallion: IMAGES.blackstallion,
+    attica: IMAGES.attica,
+  };
+
+  // Offices already running vs. those we are still setting up.
+  const activeParks = t.parksList.filter((park) => park.status === "active");
+  const upcomingParks = t.parksList.filter((park) => park.status !== "active");
   
   const galleryImageSrcs: Record<string, string> = {
     gallery1: IMAGES.gallery1,
@@ -859,7 +988,7 @@ export default function Home() {
     : t.galleryImages.filter(img => img.category === galleryFilter);
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
+    <main id="top" className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
       {/* ==================== SUCCESS MODAL ==================== */}
       {showSuccessModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -880,43 +1009,159 @@ export default function Home() {
       )}
 
       {/* ==================== NAVIGATION ==================== */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/50">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800/80 shadow-lg shadow-black/40"
+            : "bg-gradient-to-b from-zinc-950/90 to-transparent border-b border-transparent"
+        }`}
+      >
+        {/* Reading progress */}
+        <div
+          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-600 transition-[width] duration-150"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <img src={IMAGES.logo} alt="Orostudioscr" className="h-14 sm:h-16 w-auto" />
-            
-            <div className="hidden lg:flex items-center gap-6">
+          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-16" : "h-20"}`}>
+            <a href="#top" className="shrink-0" aria-label="Orostudioscr">
+              <img
+                src={IMAGES.logo}
+                alt="Orostudioscr"
+                className={`w-auto transition-all duration-300 ${scrolled ? "h-11 sm:h-12" : "h-14 sm:h-16"}`}
+              />
+            </a>
+
+            <div className="hidden lg:flex items-center gap-1">
               {Object.entries(t.nav).map(([key, value]) => (
-                <a key={key} href={`#${key}`} className="text-sm font-medium text-zinc-300 hover:text-orange-500 transition-colors">
+                <a
+                  key={key}
+                  href={`#${key}`}
+                  aria-current={activeSection === key ? "true" : undefined}
+                  className={`relative text-sm font-medium px-3 py-2 rounded-full transition-colors ${
+                    activeSection === key ? "text-orange-500" : "text-zinc-300 hover:text-orange-500"
+                  }`}
+                >
                   {value}
+                  <span
+                    className={`absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-orange-500 transition-transform origin-left duration-300 ${
+                      activeSection === key ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
                 </a>
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex items-center bg-zinc-800 rounded-full p-1">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center bg-zinc-800/80 rounded-full p-1">
                 <button
                   onClick={() => setLang("es")}
+                  aria-pressed={lang === "es"}
                   className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${lang === "es" ? "bg-orange-500 text-black" : "text-zinc-400 hover:text-white"}`}
                 >
                   ES
                 </button>
                 <button
                   onClick={() => setLang("en")}
+                  aria-pressed={lang === "en"}
                   className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${lang === "en" ? "bg-orange-500 text-black" : "text-zinc-400 hover:text-white"}`}
                 >
                   EN
                 </button>
               </div>
 
-              <a href="tel:+50660982244" className="hidden sm:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-black font-semibold px-5 py-2.5 rounded-full transition-all hover:scale-105">
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-black font-semibold px-5 py-2.5 rounded-full transition-all hover:scale-105"
+              >
                 <Phone className="w-4 h-4" />
-                <span>+506 6098-2244</span>
+                <span>{CONTACT.phoneDisplay}</span>
               </a>
+
+              <button
+                onClick={() => setMenuOpen(true)}
+                className="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-zinc-800/80 text-white hover:bg-zinc-700 transition-colors"
+                aria-label={lang === "es" ? "Abrir menú" : "Open menu"}
+                aria-expanded={menuOpen}
+              >
+                <Menu className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* ==================== MOBILE MENU ==================== */}
+      <div
+        className={`fixed inset-0 z-[60] lg:hidden transition-opacity duration-300 ${
+          menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={lang === "es" ? "Menú de navegación" : "Navigation menu"}
+      >
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
+
+        <div
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-zinc-950 border-l border-zinc-800 flex flex-col transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between px-6 h-20 border-b border-zinc-800">
+            <img src={IMAGES.logo} alt="Orostudioscr" className="h-12 w-auto" />
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-zinc-800 text-white hover:bg-zinc-700 transition-colors"
+              aria-label={lang === "es" ? "Cerrar menú" : "Close menu"}
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          <nav className="flex-1 overflow-y-auto px-6 py-8">
+            <ul className="space-y-1">
+              {Object.entries(t.nav).map(([key, value]) => (
+                <li key={key}>
+                  <a
+                    href={`#${key}`}
+                    onClick={() => setMenuOpen(false)}
+                    className={`flex items-center justify-between py-4 px-4 rounded-xl text-lg font-semibold border border-transparent transition-colors ${
+                      activeSection === key
+                        ? "text-orange-500 bg-orange-500/10 border-orange-500/20"
+                        : "text-zinc-200 hover:text-orange-500 hover:bg-zinc-900"
+                    }`}
+                  >
+                    {value}
+                    <ArrowRight className="w-4 h-4 opacity-50" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="px-6 py-6 border-t border-zinc-800 space-y-3">
+            <a
+              href={CONTACT.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 rounded-xl transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp
+            </a>
+            <a
+              href={CONTACT.phoneHref}
+              className="flex items-center justify-center gap-2 w-full border border-zinc-700 hover:border-orange-500 text-white font-semibold py-4 rounded-xl transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              {CONTACT.phoneDisplay}
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* ==================== HERO ==================== */}
       <section className="relative h-screen min-h-[700px] pt-20">
@@ -971,14 +1216,14 @@ export default function Home() {
             <span className="text-zinc-500 text-xs tracking-[0.3em] uppercase font-medium">A company by</span>
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-orange-500/50" />
           </div>
-          <img src={IMAGES.grupoOroz} alt="Grupo Oroz" className="h-24 sm:h-28 w-auto mt-4" />
+          <img src={IMAGES.grupoOroz} alt="Grupo Oroz" loading="lazy" decoding="async" className="h-24 sm:h-28 w-auto mt-4" />
         </div>
       </section>
 
       {/* ==================== SERVICES GRID ==================== */}
       <section id="services" className="py-24 px-4 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.servicesGrid.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.servicesGrid.title1}{" "}
@@ -1026,7 +1271,7 @@ export default function Home() {
       <section id="parks" className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.parks.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.parks.title1}{" "}
@@ -1041,7 +1286,7 @@ export default function Home() {
             {[
               { value: t.parks.stat1Value, label: t.parks.stat1Label },
               { value: t.parks.stat2Value, label: t.parks.stat2Label },
-              { value: t.parks.stat3Value, label: t.parks.stat3Label },
+              { value: String(activeParks.length), label: t.parks.stat3Label },
               { value: t.parks.stat4Value, label: t.parks.stat4Label },
             ].map((stat, i) => (
               <div key={i} className={`text-center p-6 rounded-2xl border ${i === 0 ? "bg-orange-500/10 border-orange-500/30" : "bg-zinc-900/50 border-zinc-800"}`}>
@@ -1051,59 +1296,162 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Park Selector */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-center mb-8">{t.parks.officesTitle}</h3>
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {t.parksList.map((park) => (
-                <button
-                  key={park.id}
-                  onClick={() => setActivePark(park.id)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all ${
-                    activePark === park.id ? "bg-orange-500 text-black" : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
-                  }`}
-                >
-                  {park.name}
-                </button>
-              ))}
+          {/* ---------- OFFICES ---------- */}
+          <div className="text-center mb-12 reveal">
+            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.parks.officesLabel}</span>
+            <h3 className="text-2xl md:text-4xl font-bold mt-3">{t.parks.officesTitle}</h3>
+            <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">{t.parks.officesSubtitle}</p>
+          </div>
+
+          {/* ---------- OFFICES: ACTIVE ---------- */}
+          <div className="mb-20">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 mb-3">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                  </span>
+                  <span className="text-green-400 text-xs font-semibold tracking-[0.2em] uppercase">
+                    {t.parks.badgeActive}
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold">{t.parks.officesActiveTitle}</h3>
+                <p className="text-zinc-400 mt-2 max-w-2xl">{t.parks.officesActiveSubtitle}</p>
+              </div>
+              <div className="flex items-baseline gap-2 shrink-0">
+                <span className="text-5xl font-bold text-orange-500 leading-none">{activeParks.length}</span>
+                <span className="text-zinc-400 text-sm max-w-[7rem] leading-tight">
+                  {lang === "es" ? "oficinas trabajando hoy" : "offices running today"}
+                </span>
+              </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="relative rounded-2xl overflow-hidden aspect-video">
-                {parkImages[currentPark.id] ? (
-                  <img src={parkImages[currentPark.id]} alt={currentPark.name} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center gap-3">
-                    <Building2 className="w-12 h-12 text-orange-500/60" />
-                    <span className="text-zinc-500 text-sm px-4 text-center">{currentPark.location}</span>
-                  </div>
-                )}
-                {"comingSoon" in currentPark && currentPark.comingSoon && (
-                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                    <span className="bg-orange-500 text-black font-bold px-6 py-3 rounded-full text-lg">{lang === "es" ? "Próximamente" : "Coming Soon"}</span>
-                  </div>
-                )}
-              </div>
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold">{currentPark.name}</h3>
-                <div className="flex items-center gap-2 text-zinc-400">
-                  <MapPin className="w-5 h-5 text-orange-500" />
-                  {currentPark.location}
-                </div>
-                <p className="text-zinc-300 text-lg leading-relaxed">{currentPark.description}</p>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2 text-zinc-400">
-                    <Check className="w-5 h-5 text-orange-500" />
-                    {t.parks.quality}
-                  </div>
-                  <div className="flex items-center gap-2 text-zinc-400">
-                    <Check className="w-5 h-5 text-orange-500" />
-                    {t.parks.reliable}
-                  </div>
-                </div>
-              </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {activeParks.map((park) => {
+                const photo = parkImages[park.id];
+                return (
+                  <article
+                    key={park.id}
+                    className="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-800">
+                      {photo ? (
+                        <button
+                          type="button"
+                          onClick={() => setActiveImage(photo)}
+                          className="block w-full h-full cursor-zoom-in"
+                          aria-label={`${lang === "es" ? "Ampliar foto de" : "Enlarge photo of"} ${park.name}`}
+                        >
+                          <img
+                            src={photo}
+                            alt={`${lang === "es" ? "Oficina de Orostudioscr en" : "Orostudioscr office at"} ${park.name}, ${park.location}`}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </button>
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center gap-2">
+                          <Building2 className="w-10 h-10 text-orange-500/50" />
+                          <span className="text-zinc-500 text-xs px-4 text-center">{park.location}</span>
+                        </div>
+                      )}
+
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-900 to-transparent pointer-events-none" />
+
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-green-500/90 text-black text-[11px] font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-black/70" />
+                        {t.parks.badgeActive}
+                      </span>
+                    </div>
+
+                    <div className="p-5">
+                      <h4 className="text-lg font-bold leading-snug">{park.name}</h4>
+                      <div className="flex items-center gap-1.5 text-zinc-400 text-sm mt-1.5">
+                        <MapPin className="w-4 h-4 text-orange-500 shrink-0" />
+                        {park.location}
+                      </div>
+                      <p className="text-zinc-400 text-sm mt-3 leading-relaxed">{park.description}</p>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-4 border-t border-zinc-800">
+                        <span className="flex items-center gap-1.5 text-zinc-500 text-xs">
+                          <Check className="w-3.5 h-3.5 text-orange-500" />
+                          {t.parks.quality}
+                        </span>
+                        <span className="flex items-center gap-1.5 text-zinc-500 text-xs">
+                          <Check className="w-3.5 h-3.5 text-orange-500" />
+                          {t.parks.reliable}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
+
+          {/* ---------- OFFICES: COMING SOON ---------- */}
+          {upcomingParks.length > 0 && (
+            <div className="mb-12">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-zinc-800 to-zinc-800" />
+                <div className="text-center">
+                  <span className="inline-flex items-center gap-2 text-orange-500/80 text-xs font-semibold tracking-[0.2em] uppercase">
+                    <Clock className="w-3.5 h-3.5" />
+                    {t.parks.badgeSoon}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold mt-2">{t.parks.officesSoonTitle}</h3>
+                </div>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-zinc-800 to-zinc-800" />
+              </div>
+
+              <p className="text-zinc-500 text-center max-w-2xl mx-auto mb-8 text-sm">
+                {t.parks.officesSoonSubtitle}
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+                {upcomingParks.map((park) => {
+                  const photo = parkImages[park.id];
+                  return (
+                    <article
+                      key={park.id}
+                      className="relative flex gap-4 items-center bg-zinc-900/40 border border-dashed border-zinc-800 rounded-2xl p-4 hover:border-orange-500/30 transition-colors"
+                    >
+                      <div className="relative w-24 h-24 shrink-0 rounded-xl overflow-hidden bg-zinc-800">
+                        {photo ? (
+                          <img
+                            src={photo}
+                            alt={`${park.name}, ${park.location}`}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover opacity-40 grayscale"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center">
+                            <Building2 className="w-7 h-7 text-orange-500/40" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Clock className="w-6 h-6 text-orange-500/80" />
+                        </div>
+                      </div>
+
+                      <div className="min-w-0">
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-orange-500/80 border border-orange-500/30 rounded-full px-2 py-0.5 mb-1.5">
+                          {t.parks.badgeSoon}
+                        </span>
+                        <h4 className="font-bold leading-snug">{park.name}</h4>
+                        <div className="flex items-center gap-1.5 text-zinc-500 text-xs mt-1">
+                          <MapPin className="w-3.5 h-3.5 text-orange-500/70 shrink-0" />
+                          {park.location}
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Expandable Details */}
           <div className="text-center mb-8">
@@ -1346,7 +1694,7 @@ export default function Home() {
       {/* ==================== AGENCY ==================== */}
       <section id="agency" className="py-24 px-4 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.agency.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.agency.title1}{" "}
@@ -1421,7 +1769,7 @@ export default function Home() {
       {/* ==================== GALLERY ==================== */}
       <section id="gallery" className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.gallery.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.gallery.title1}{" "}
@@ -1453,14 +1801,18 @@ export default function Home() {
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {filteredGallery.map((img, index) => (
-              <div
+              <button
+                type="button"
                 key={index}
-                className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer"
+                className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-zoom-in text-left"
                 onClick={() => setActiveImage(galleryImageSrcs[img.src])}
+                aria-label={`${lang === "es" ? "Ampliar" : "Enlarge"}: ${img.title}`}
               >
                 <img
                   src={galleryImageSrcs[img.src]}
                   alt={img.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -1469,7 +1821,7 @@ export default function Home() {
                     <span className="text-orange-500 text-sm capitalize">{img.category}</span>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -1477,10 +1829,25 @@ export default function Home() {
 
       {/* Lightbox */}
       {activeImage && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 cursor-pointer" onClick={() => setActiveImage(null)}>
-          <img src={activeImage} alt="Enlarged" className="max-w-full max-h-full object-contain rounded-lg" />
-          <button className="absolute top-6 right-6 text-white hover:text-orange-500 transition-colors" onClick={() => setActiveImage(null)}>
-            <X className="w-8 h-8" />
+        <div
+          className="fixed inset-0 z-[70] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lang === "es" ? "Imagen ampliada" : "Enlarged image"}
+          onClick={() => setActiveImage(null)}
+        >
+          <img
+            src={activeImage}
+            alt={lang === "es" ? "Imagen ampliada" : "Enlarged image"}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-zinc-900/80 border border-zinc-700 text-white hover:text-orange-500 hover:border-orange-500 transition-colors flex items-center justify-center"
+            onClick={() => setActiveImage(null)}
+            aria-label={lang === "es" ? "Cerrar" : "Close"}
+          >
+            <X className="w-6 h-6" />
           </button>
         </div>
       )}
@@ -1488,7 +1855,7 @@ export default function Home() {
       {/* ==================== PROCESS ==================== */}
       <section id="process" className="py-24 px-4 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.process.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.process.title1}{" "}
@@ -1526,7 +1893,7 @@ export default function Home() {
       {/* ==================== WEDDINGS & EVENTS ==================== */}
       <section id="events" className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.events.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.events.title1}{" "}
@@ -1580,7 +1947,7 @@ export default function Home() {
       {/* ==================== CONTACT ==================== */}
       <section id="contact" className="py-24 px-4 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.contact.label}</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">
               {t.contact.title1}{" "}
@@ -1687,23 +2054,23 @@ export default function Home() {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold mb-6">{t.contact.orContact}</h3>
               
-              <a href="tel:+50660982244" className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
+              <a href={CONTACT.phoneHref} className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
                 <div className="w-12 h-12 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
                   <Phone className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
                 </div>
                 <div>
                   <p className="text-zinc-400 text-sm">WhatsApp / Teléfono</p>
-                  <p className="text-white font-semibold">+506 6098-2244</p>
+                  <p className="text-white font-semibold">{CONTACT.phoneDisplay}</p>
                 </div>
               </a>
 
-              <a href="mailto:gerencia@orostudioscr.com" className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
+              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
                 <div className="w-12 h-12 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
                   <Mail className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
                 </div>
                 <div>
                   <p className="text-zinc-400 text-sm">Email</p>
-                  <p className="text-white font-semibold">gerencia@orostudioscr.com</p>
+                  <p className="text-white font-semibold">{CONTACT.email}</p>
                 </div>
               </a>
 
@@ -1721,10 +2088,10 @@ export default function Home() {
               <div className="bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6">
                 <h4 className="font-bold mb-4">{lang === "es" ? "Síguenos en redes" : "Follow us"}</h4>
                 <div className="flex items-center gap-4">
-                  <a href="#" className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
+                  <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                     <Instagram className="w-5 h-5 text-zinc-400 group-hover:text-black" />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
+                  <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-12 h-12 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                     <Facebook className="w-5 h-5 text-zinc-400 group-hover:text-black" />
                   </a>
                 </div>
@@ -1739,7 +2106,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <img src={IMAGES.logo} alt="Orostudioscr" className="h-20 w-auto mb-6" />
+              <img src={IMAGES.logo} alt="Orostudioscr" loading="lazy" decoding="async" className="h-20 w-auto mb-6" />
               <p className="text-zinc-400 leading-relaxed max-w-md">{t.footer.description}</p>
             </div>
 
@@ -1756,13 +2123,13 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-bold mb-6">{t.footer.contactTitle}</h4>
               <div className="space-y-3">
-                <a href="tel:+50660982244" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
+                <a href={CONTACT.phoneHref} className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
                   <Phone className="w-4 h-4" />
-                  +506 6098-2244
+                  {CONTACT.phoneDisplay}
                 </a>
-                <a href="mailto:gerencia@orostudioscr.com" className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
+                <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
                   <Mail className="w-4 h-4" />
-                  gerencia@orostudioscr.com
+                  {CONTACT.email}
                 </a>
                 <div className="flex items-center gap-3 text-zinc-400">
                   <MapPin className="w-4 h-4" />
@@ -1775,16 +2142,42 @@ export default function Home() {
           <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} {t.footer.copyright}</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
+              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                 <Instagram className="w-4 h-4 text-zinc-400 group-hover:text-black" />
               </a>
-              <a href="#" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
+              <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                 <Facebook className="w-4 h-4 text-zinc-400 group-hover:text-black" />
               </a>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* ==================== FLOATING ACTIONS ==================== */}
+      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className={`w-11 h-11 rounded-full bg-zinc-800/90 backdrop-blur border border-zinc-700 text-white flex items-center justify-center hover:bg-zinc-700 transition-all ${
+            scrollProgress > 12 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+          }`}
+          aria-label={lang === "es" ? "Volver arriba" : "Back to top"}
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+
+        <a
+          href={CONTACT.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2 bg-green-500 hover:bg-green-400 text-black font-bold pl-4 pr-5 py-3.5 rounded-full shadow-lg shadow-green-500/25 transition-all hover:scale-105"
+          aria-label={lang === "es" ? "Escríbenos por WhatsApp" : "Message us on WhatsApp"}
+        >
+          <MessageCircle className="w-5 h-5" />
+          <span className="hidden sm:inline text-sm">
+            {lang === "es" ? "Escríbenos" : "Chat with us"}
+          </span>
+        </a>
+      </div>
     </main>
   );
 }

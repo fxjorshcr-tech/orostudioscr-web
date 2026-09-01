@@ -814,6 +814,106 @@ const equipmentIcons = [Monitor, Shirt, HardHat, FileCheck, GraduationCap, Lock]
 const businessTypeIcons = [Hotel, UtensilsCrossed, Compass, ShoppingBag, Briefcase, HomeIcon];
 
 // ============================================
+// LANGUAGE SWITCHER
+// ============================================
+const FlagES = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 16" className={className} aria-hidden="true" focusable="false">
+    <rect width="24" height="16" fill="#c60b1e" />
+    <rect y="4" width="24" height="8" fill="#ffc400" />
+  </svg>
+);
+
+const FlagGB = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 16" className={className} aria-hidden="true" focusable="false">
+    <rect width="24" height="16" fill="#012169" />
+    <path d="M0 0l24 16M24 0L0 16" stroke="#fff" strokeWidth="3.2" />
+    <path d="M0 0l24 16M24 0L0 16" stroke="#c8102e" strokeWidth="1.6" />
+    <path d="M12 0v16M0 8h24" stroke="#fff" strokeWidth="5.4" />
+    <path d="M12 0v16M0 8h24" stroke="#c8102e" strokeWidth="3.2" />
+  </svg>
+);
+
+const LANGUAGES: {
+  code: Lang;
+  short: string;
+  label: string;
+  Flag: React.ComponentType<{ className?: string }>;
+}[] = [
+  { code: "es", short: "ES", label: "Español", Flag: FlagES },
+  { code: "en", short: "EN", label: "English", Flag: FlagGB },
+];
+
+function LanguageSwitcher({ lang, onChange }: { lang: Lang; onChange: (next: Lang) => void }) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const current = LANGUAGES.find((item) => item.code === lang) ?? LANGUAGES[0];
+  const CurrentFlag = current.Flag;
+
+  // Close on outside click or Escape
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={lang === "es" ? "Cambiar idioma" : "Change language"}
+        className="flex items-center gap-2 rounded-full border border-white/10 bg-zinc-800/80 py-1.5 pl-2.5 pr-2 text-white transition-colors hover:bg-zinc-700/80"
+      >
+        <CurrentFlag className="h-3.5 w-5 shrink-0 rounded-[2px]" />
+        <span className="text-sm font-bold leading-none">{current.short}</span>
+        <ChevronDown className={`h-4 w-4 text-zinc-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      <div
+        role="listbox"
+        aria-label={lang === "es" ? "Idiomas disponibles" : "Available languages"}
+        className={`absolute right-0 top-full z-10 mt-2 w-44 origin-top-right rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-2xl shadow-black/60 transition-all duration-150 ${
+          open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
+        }`}
+      >
+        {LANGUAGES.map(({ code, label, Flag }) => (
+          <button
+            key={code}
+            type="button"
+            role="option"
+            aria-selected={lang === code}
+            onClick={() => {
+              onChange(code);
+              setOpen(false);
+            }}
+            className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors ${
+              lang === code
+                ? "bg-orange-500/10 font-bold text-orange-500"
+                : "font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white"
+            }`}
+          >
+            <Flag className="h-4 w-6 shrink-0 rounded-[2px]" />
+            {label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================
 // COMPONENT
 // ============================================
 export default function Home() {
@@ -874,10 +974,22 @@ export default function Home() {
     if (videoRef.current) videoRef.current.playbackRate = 1;
   }, []);
 
-  // Restore the visitor's last language choice
+  // Pick the language: ?lang= wins, then the last choice, then the browser
   useEffect(() => {
+    const fromUrl = new URLSearchParams(window.location.search).get("lang");
+    if (fromUrl === "es" || fromUrl === "en") {
+      setLang(fromUrl);
+      return;
+    }
+
     const saved = window.localStorage.getItem("oros-lang");
-    if (saved === "es" || saved === "en") setLang(saved);
+    if (saved === "es" || saved === "en") {
+      setLang(saved);
+      return;
+    }
+
+    const browserLang = navigator.languages?.[0] ?? navigator.language ?? "";
+    if (browserLang && !browserLang.toLowerCase().startsWith("es")) setLang("en");
   }, []);
 
   useEffect(() => {
@@ -1054,22 +1166,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="flex items-center bg-zinc-800/80 rounded-full p-1">
-                <button
-                  onClick={() => setLang("es")}
-                  aria-pressed={lang === "es"}
-                  className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${lang === "es" ? "bg-orange-500 text-black" : "text-zinc-400 hover:text-white"}`}
-                >
-                  ES
-                </button>
-                <button
-                  onClick={() => setLang("en")}
-                  aria-pressed={lang === "en"}
-                  className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all ${lang === "en" ? "bg-orange-500 text-black" : "text-zinc-400 hover:text-white"}`}
-                >
-                  EN
-                </button>
-              </div>
+              <LanguageSwitcher lang={lang} onChange={setLang} />
 
               <a
                 href={CONTACT.whatsapp}
@@ -1143,6 +1240,24 @@ export default function Home() {
           </nav>
 
           <div className="px-6 py-6 border-t border-zinc-800 space-y-3">
+            <div className="grid grid-cols-2 gap-2">
+              {LANGUAGES.map(({ code, label, Flag }) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => setLang(code)}
+                  aria-pressed={lang === code}
+                  className={`flex items-center justify-center gap-2 rounded-xl border py-3 text-sm transition-colors ${
+                    lang === code
+                      ? "border-orange-500/40 bg-orange-500/10 font-bold text-orange-500"
+                      : "border-zinc-700 font-medium text-zinc-300 hover:border-zinc-500 hover:text-white"
+                  }`}
+                >
+                  <Flag className="h-4 w-6 shrink-0 rounded-[2px]" />
+                  {label}
+                </button>
+              ))}
+            </div>
             <a
               href={CONTACT.whatsapp}
               target="_blank"
@@ -2059,7 +2174,7 @@ export default function Home() {
                   <Phone className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
                 </div>
                 <div>
-                  <p className="text-zinc-400 text-sm">WhatsApp / Teléfono</p>
+                  <p className="text-zinc-400 text-sm">{lang === "es" ? "WhatsApp / Teléfono" : "WhatsApp / Phone"}</p>
                   <p className="text-white font-semibold">{CONTACT.phoneDisplay}</p>
                 </div>
               </a>

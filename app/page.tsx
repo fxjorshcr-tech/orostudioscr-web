@@ -37,6 +37,7 @@ const IMAGES = {
   ama: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/public/Fotos/oficina-ama-cr.jpeg",
   poas: "https://jrphapxnjpcepsecfsoe.supabase.co/storage/v1/object/sign/fotos/poas-adventure-park.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9jNDJiMjQ5Yy00YjhhLTQ5ZDAtOTJmMC1iNjlkMmI2MjFhODUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmb3Rvcy9wb2FzLWFkdmVudHVyZS1wYXJrLndlYnAiLCJpYXQiOjE3NjUzNzkxMjUsImV4cCI6MTc5NjkxNTEyNX0.WCytgZ_KWoXIcKDfqlptpaRY2LlodAlMrT-IJlzvuLg",
   blackstallion: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/sign/logos-oroz/black.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iZmNkZjM3My00NzkzLTRhYjQtYmRhOC04OWY1ZmNiMjdhMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy1vcm96L2JsYWNrLmpwZWciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg3MzIyOTI0LCJleHAiOjE4MTg4NTg5MjR9.PWzm0Hj8EMBuGZtq0sR7pczuji4zjiU6MTuHIBY0saM",
+  brisas: "/oficinas/brisas-de-la-jungla.webp",
   attica: "https://mmlbslwljvmscbgsqkkq.supabase.co/storage/v1/object/sign/logos-oroz/atica%202.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iZmNkZjM3My00NzkzLTRhYjQtYmRhOC04OWY1ZmNiMjdhMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy1vcm96L2F0aWNhIDIuanBlZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODczMjM1OTEsImV4cCI6MTgxODg1OTU5MX0.9Wvaml2N1zd7LcLJKKx6jcjg87zhLrcl1e7OAU_ti5Y",
 };
 
@@ -270,9 +271,9 @@ const translations = {
         id: "brisas",
         name: "Brisas de la Jungla",
         location: "Limón",
-        status: "soon",
-        since: "En preparación",
-        description: "Naturaleza caribeña en estado puro. Llevamos nuestra fotografía profesional a Limón próximamente.",
+        status: "active",
+        since: "Oficina permanente",
+        description: "Naturaleza caribeña en estado puro. Nuestra oficina ya opera en el parque con personal fijo, pantallas y entrega inmediata de fotos y videos.",
       },
     ],
     // Agency
@@ -636,9 +637,9 @@ const translations = {
         id: "brisas",
         name: "Brisas de la Jungla",
         location: "Limón",
-        status: "soon",
-        since: "In preparation",
-        description: "Caribbean nature at its purest. We're bringing our professional photography to Limón soon.",
+        status: "active",
+        since: "Permanent office",
+        description: "Caribbean nature at its purest. Our office is already running in the park with dedicated staff, display screens and instant photo and video delivery.",
       },
     ],
     // Agency
@@ -1080,6 +1081,7 @@ export default function Home() {
     poas: IMAGES.poas,
     blackstallion: IMAGES.blackstallion,
     attica: IMAGES.attica,
+    brisas: IMAGES.brisas,
   };
 
   // Offices already running vs. those we are still setting up.

@@ -92,6 +92,11 @@ const jsonLd = {
   areaServed: { "@type": "Country", name: "Costa Rica" },
   priceRange: "$$",
   knowsLanguage: ["es", "en"],
+  sameAs: [
+    "https://www.instagram.com/orostudioscr",
+    "https://www.facebook.com/orostudioscr",
+    "https://www.tiktok.com/@orostudioscr",
+  ],
 };
 
 export default function RootLayout({

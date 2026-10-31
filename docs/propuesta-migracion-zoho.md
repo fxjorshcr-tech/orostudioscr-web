@@ -1,46 +1,40 @@
-# Propuesta: migrar los correos de orostudioscr.com de GoDaddy a Zoho Workplace
+# Correos de orostudioscr.com: vencimientos en GoDaddy y costo de migrar a Zoho
 
 Fecha: 31 de octubre de 2026. Precios en USD sin impuestos.
 
-## Tabla 1. Correos de orostudioscr.com en GoDaddy hoy
+## Tabla 1. Vencimiento de los correos en GoDaddy
 
-| Buzón | Plan actual | Costo anual | Vence |
-|---|---|---|---|
-| gerencia@orostudioscr.com | Professional Email Pro Light | $59.88 | 31 dic 2026 |
-| skylinephotos@orostudioscr.com | Professional Email Pro Light | $59.88 | 17 sep 2027 |
-| ecoglidephotos@orostudioscr.com | Professional Email Pro Light | $59.88 | 17 sep 2027 |
-| amaphotos@orostudioscr.com | Professional Email Pro Light | $59.88 | 17 sep 2027 |
-| brisas@orostudioscr.com | Professional Email Pro Light | $59.88 | 5 ene 2028 |
-| info@orostudioscr.com | Professional Email Pro Light | $59.88 | 29 jun 2028 |
-| bs@orostudioscr.com | Professional Email Pro Light | $59.88 | 8 jul 2028 |
-| acphotos@orostudioscr.com | Professional Email Pro Light | $59.88 | 18 jul 2028 |
-| **Total 8 buzones** | | **$479.04 / año** | |
+| Buzón | Plan actual | Capacidad | Costo anual | Vence |
+|---|---|---|---|---|
+| gerencia@orostudioscr.com | Pro Light | 10 GB | $59.88 | 31 dic 2026 |
+| skylinephotos@orostudioscr.com | Pro Light | 10 GB | $59.88 | 17 sep 2027 |
+| ecoglidephotos@orostudioscr.com | Pro Light | 10 GB | $59.88 | 17 sep 2027 |
+| amaphotos@orostudioscr.com | Pro Light | 10 GB | $59.88 | 17 sep 2027 |
+| brisas@orostudioscr.com | Pro Light | 10 GB | $59.88 | 5 ene 2028 |
+| info@orostudioscr.com | Pro Light | 10 GB | $59.88 | 29 jun 2028 |
+| bs@orostudioscr.com | Pro Light | 10 GB | $59.88 | 8 jul 2028 |
+| acphotos@orostudioscr.com | Pro Light | 10 GB | $59.88 | 18 jul 2028 |
+| **Total 8 buzones** | | **80 GB** | **$479.04 / año** | |
 
 Último pago confirmado: 19 de setiembre de 2026, recibo 4187802293 (skylinephotos@, ecoglidephotos@, amaphotos@).
+Dominio orostudioscr.com: se renueva el 1 de febrero de 2027.
 
-## Tabla 2. Costo en Zoho Workplace Standard (30 GB por buzón)
+## Tabla 2. Costo de mover los 8 correos a Zoho hoy
 
-| Concepto | Cantidad | Precio unitario | Total |
-|---|---|---|---|
-| Zoho Workplace Standard: 30 GB correo + 100 GB WorkDrive compartido + Writer, Sheet, Show, Cliq, Meeting | 8 buzones | $36 / buzón / año ($3/mes, pago anual) | $288.00 / año |
-| Migración de correos desde GoDaddy | 8 buzones | Incluida (herramienta IMAP de Zoho) | $0 |
-| **Total primer año** | | | **$288.00** |
+| Opción | Capacidad por buzón | Incluye | Precio por buzón | Total 8 buzones / año |
+|---|---|---|---|---|
+| Zoho Workplace Standard | 30 GB correo + 100 GB WorkDrive compartido | Correo, Writer, Sheet, Show, Calendar, Cliq, Meeting | $3 / mes, pago anual ($36 / año) | **$288.00** |
+| Zoho Mail Premium | 50 GB correo + 50 GB de retención | Solo correo | $4 / mes, pago anual ($48 / año) | **$384.00** |
+| GoDaddy actual (referencia) | 10 GB | Solo correo | $59.88 / año | $479.04 |
 
-Opción de pago mensual: $4/buzón/mes = $32/mes = $384/año.
-
-Ahorro frente a GoDaddy: $191.04 al año, con el triple de capacidad y herramientas de oficina incluidas.
-
-Alternativas descartadas: Zoho Mail Premium (50 GB, solo correo) $4/buzón/mes = $384/año;
-Mail Lite 10 GB $1.25/buzón/mes = $120/año.
+Workplace Standard también admite pago mensual: $4/buzón/mes = $32/mes. Mail Premium es solo anual.
+La migración de los correos existentes está incluida en Zoho (herramienta IMAP).
 
 ## Por qué se migran todos y no solo brisas@
 
 GoDaddy exige que todos los correos de un dominio estén en la misma plataforma: los registros MX del dominio
-apuntan a un solo servidor de correo. Migrar uno implica migrar los 8.
+apuntan a un solo servidor de correo. Migrar uno implica migrar los 8. Lo ya pagado en GoDaddy no es reembolsable
+fuera de la ventana de 30 días.
 
-## Recomendación
-
-Migrar antes del 31 de diciembre de 2026, fecha en que vence gerencia@, para no renovar nada más en GoDaddy.
-Lo ya pagado en GoDaddy no es reembolsable (ventana de reembolso de 30 días).
-
-Fuentes de precio: zoho.com/workplace/pricing.html y zoho.com/mail/zohomail-pricing.html (precios verificados octubre 2026).
+Fuentes: GoDaddy "Compare Professional Email plans" (Pro Light = 10 GB); zoho.com/workplace/pricing.html;
+zoho.com/mail/zohomail-pricing.html (precios verificados octubre 2026).

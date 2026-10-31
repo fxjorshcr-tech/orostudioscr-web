@@ -1,4 +1,4 @@
-# Propuesta: migrar los correos de orostudioscr.com de GoDaddy a Zoho Mail
+# Propuesta: migrar los correos de orostudioscr.com de GoDaddy a Zoho Workplace
 
 Fecha: 31 de octubre de 2026. Precios en USD sin impuestos.
 
@@ -18,17 +18,20 @@ Fecha: 31 de octubre de 2026. Precios en USD sin impuestos.
 
 Último pago confirmado: 19 de setiembre de 2026, recibo 4187802293 (skylinephotos@, ecoglidephotos@, amaphotos@).
 
-## Tabla 2. Costo en Zoho Mail Premium (50 GB por buzón)
+## Tabla 2. Costo en Zoho Workplace Standard (30 GB por buzón)
 
 | Concepto | Cantidad | Precio unitario | Total |
 |---|---|---|---|
-| Zoho Mail Premium, 50 GB + 50 GB de retención | 8 buzones | $48 / buzón / año ($4/mes, solo anual) | $384.00 / año |
+| Zoho Workplace Standard: 30 GB correo + 100 GB WorkDrive compartido + Writer, Sheet, Show, Cliq, Meeting | 8 buzones | $36 / buzón / año ($3/mes, pago anual) | $288.00 / año |
 | Migración de correos desde GoDaddy | 8 buzones | Incluida (herramienta IMAP de Zoho) | $0 |
-| **Total primer año** | | | **$384.00** |
+| **Total primer año** | | | **$288.00** |
 
-Ahorro frente a GoDaddy: $95.04 al año, con 50 GB por buzón.
+Opción de pago mensual: $4/buzón/mes = $32/mes = $384/año.
 
-Alternativas: Zoho Workplace Standard (30 GB + oficina) $3/buzón/mes = $288/año; Mail Lite 10 GB $1.25/buzón/mes = $120/año.
+Ahorro frente a GoDaddy: $191.04 al año, con el triple de capacidad y herramientas de oficina incluidas.
+
+Alternativas descartadas: Zoho Mail Premium (50 GB, solo correo) $4/buzón/mes = $384/año;
+Mail Lite 10 GB $1.25/buzón/mes = $120/año.
 
 ## Por qué se migran todos y no solo brisas@
 
@@ -40,4 +43,4 @@ apuntan a un solo servidor de correo. Migrar uno implica migrar los 8.
 Migrar antes del 31 de diciembre de 2026, fecha en que vence gerencia@, para no renovar nada más en GoDaddy.
 Lo ya pagado en GoDaddy no es reembolsable (ventana de reembolso de 30 días).
 
-Fuentes de precio: zoho.com/mail/zohomail-pricing.html y listado de Zoho Mail Premium en AWS Marketplace ($48 por 12 meses).
+Fuentes de precio: zoho.com/workplace/pricing.html y zoho.com/mail/zohomail-pricing.html (precios verificados octubre 2026).

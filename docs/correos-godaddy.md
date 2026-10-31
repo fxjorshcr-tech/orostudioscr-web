@@ -32,26 +32,37 @@ Total: $1,282.32 (8 × Essentials $863.04 · 1 × Plus $119.88 · 5 × Pro Light
 
 Total cobrado ambos recibos: $1,522.08 USD (sin impuestos).
 
-## Buzones activos en orostudioscr.com (panel de GoDaddy, 31 de octubre de 2026)
+## Buzones activos en orostudioscr.com (Renovaciones de GoDaddy, 31 de octubre de 2026)
 
 Todos en Professional Email Pro Light. 0 cuentas disponibles: cualquier buzón nuevo requiere comprar otra licencia.
 
-| Buzón | Nombre en el panel | En el cobro de set. 2026 | Vencimiento |
+| Buzón | Nombre en el panel | Se renueva | Último pago confirmado |
 |---|---|---|---|
-| brisas@ | Brisas De la Jungla | No | Pendiente de confirmar |
-| acphotos@ | Aventura en las copas de los árboles de Arenal | No | Pendiente de confirmar |
-| bs@ | Semental negro Tamarindo | No | Pendiente de confirmar |
-| info@ | Jason Murillo | No | Pendiente de confirmar |
-| gerencia@ | Dosel del horizonte | No | Pendiente de confirmar |
-| amaphotos@ | FOTOS DE AMA | Sí | Setiembre 2027 |
-| ecoglidephotos@ | Fotos de Ecoglide | Sí | Setiembre 2027 |
-| skylinephotos@ | Fotos del horizonte | Sí | Setiembre 2027 |
+| gerencia@ | Dosel del horizonte | 31 dic 2026 | Pendiente (ver Historial de pedidos) |
+| skylinephotos@ | Fotos del horizonte | 17 sep 2027 | 19 sep 2026, recibo 4187802293 |
+| ecoglidephotos@ | Fotos de Ecoglide | 17 sep 2027 | 19 sep 2026, recibo 4187802293 |
+| amaphotos@ | FOTOS DE AMA | 17 sep 2027 | 19 sep 2026, recibo 4187802293 |
+| brisas@ | Brisas De la Jungla | 5 ene 2028 | Pendiente |
+| info@ | Jason Murillo | 29 jun 2028 | Pendiente |
+| bs@ | Semental negro Tamarindo | 8 jul 2028 | Pendiente |
+| acphotos@ | Aventura en las copas de los árboles de Arenal | 18 jul 2028 | Pendiente |
+
+Dominio orostudioscr.com: se renueva el 1 de febrero de 2027. Sostiene la web y los 8 buzones.
+
+Relacionado en grupooroz.com: facturacionorostudioscr@ (Pro Plus) y facturacionfotográfico@ (Pro Light)
+figuran cancelados con fecha 9 de abril de 2028; funcionan hasta entonces y no se renovarán.
 
 Dónde ver vencimiento y último pago: account.godaddy.com/renewals (Renovaciones y facturación) y
 account.godaddy.com/orders (Historial de pedidos, con PDF de cada recibo).
 
+## Pendientes
+
+- Activar renovación automática en gerencia@orostudioscr.com (vence 31 dic 2026).
+- Activar renovación automática o prorrogar el dominio orostudioscr.com (vence 1 feb 2027).
+- Decidir qué hacer con facturacionorostudioscr@grupooroz.com antes de abril 2028.
+- Completar la columna de último pago con los recibos del Historial de pedidos.
+
 ## Notas
 
-- Los 5 buzones que no aparecen en el cobro de setiembre se compraron en otra fecha y vencen aparte.
 - Los buzones de orostudioscr.com están en Professional Email. GoDaddy no permite mezclar Professional Email
   y Microsoft 365 en un mismo dominio: pasar uno a Microsoft 365 implica pasar todos los del dominio.

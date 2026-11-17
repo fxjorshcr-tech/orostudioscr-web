@@ -58,12 +58,12 @@ const CONTACT = {
 // Los clientes con consultas sobre sus fotos escriben aquí y no a gerencia.
 // Un parque sin correo no aparece en el bloque "¿Problemas con tus fotos?".
 const OFFICE_EMAILS: Record<string, string> = {
-  ama: "",
-  ecoglide: "",
-  skyline: "",
-  blackstallion: "",
-  attica: "",
-  brisas: "",
+  ama: "amaphotos@orostudioscr.com",
+  ecoglide: "ecoglidephotos@orostudioscr.com",
+  skyline: "skylinephotos@orostudioscr.com",
+  blackstallion: "bs@orostudioscr.com",
+  attica: "acphotos@orostudioscr.com",
+  brisas: "brisas@orostudioscr.com",
 };
 
 // Lucide no incluye el logo de TikTok, así que se dibuja inline.

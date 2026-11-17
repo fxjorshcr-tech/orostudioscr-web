@@ -54,6 +54,18 @@ const CONTACT = {
   tiktok: "https://www.tiktok.com/@orostudioscr",
 };
 
+// Correo de la oficina de cada parque (la clave es el id del parque en parksList).
+// Los clientes con consultas sobre sus fotos escriben aquí y no a gerencia.
+// Un parque sin correo no aparece en el bloque "¿Problemas con tus fotos?".
+const OFFICE_EMAILS: Record<string, string> = {
+  ama: "",
+  ecoglide: "",
+  skyline: "",
+  blackstallion: "",
+  attica: "",
+  brisas: "",
+};
+
 // Lucide no incluye el logo de TikTok, así que se dibuja inline.
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -426,6 +438,16 @@ const translations = {
       successMessage: "Pronto te contactamos",
       orContact: "O contáctenos directamente",
     },
+    // Soporte a clientes de los parques
+    photoSupport: {
+      title: "¿Problemas con tus fotos?",
+      text: "Escribe directamente a la oficina del parque que visitaste: ahí tienen tu material y te responden más rápido.",
+      shortText: "Escribe a la oficina del parque que visitaste.",
+      formHint: "¿Tu consulta es sobre las fotos de un tour?",
+      formHintLink: "Escribe a la oficina de tu parque",
+      mailSubject: "Consulta sobre mis fotos",
+      ownersLabel: "Cotizaciones para dueños de parques",
+    },
     // Footer
     footer: {
       description: "Contenido visual y digital profesional para impulsar tu negocio. Más de 20 años de experiencia en Costa Rica.",
@@ -792,6 +814,16 @@ const translations = {
       successMessage: "We'll contact you soon",
       orContact: "Or contact us directly",
     },
+    // Support for park guests
+    photoSupport: {
+      title: "Trouble with your photos?",
+      text: "Email the office at the park you visited directly: they have your photos and videos and will reply faster.",
+      shortText: "Email the office at the park you visited.",
+      formHint: "Is your question about photos from a tour?",
+      formHintLink: "Email your park's office",
+      mailSubject: "Question about my photos",
+      ownersLabel: "Quotes for park owners",
+    },
     // Footer
     footer: {
       description: "Professional visual and digital content to boost your business. More than 20 years of experience in Costa Rica.",
@@ -1097,6 +1129,11 @@ export default function Home() {
   // Offices already running vs. those we are still setting up.
   const activeParks = t.parksList.filter((park) => park.status === "active");
   const upcomingParks = t.parksList.filter((park) => park.status !== "active");
+
+  // Oficinas en operación que ya tienen correo propio para atender a sus clientes.
+  const photoSupportParks = activeParks
+    .map((park) => ({ ...park, email: OFFICE_EMAILS[park.id] ?? "" }))
+    .filter((park) => park.email);
   
   const galleryImageSrcs: Record<string, string> = {
     gallery1: IMAGES.gallery1,
@@ -2174,6 +2211,15 @@ export default function Home() {
                     </>
                   )}
                 </button>
+
+                {photoSupportParks.length > 0 && (
+                  <p className="text-center text-sm text-zinc-500">
+                    {t.photoSupport.formHint}{" "}
+                    <a href="#photo-support" className="text-zinc-300 underline underline-offset-4 hover:text-orange-500 transition-colors">
+                      {t.photoSupport.formHintLink}
+                    </a>
+                  </p>
+                )}
               </form>
             </div>
 
@@ -2191,16 +2237,6 @@ export default function Home() {
                 </div>
               </a>
 
-              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
-                <div className="w-12 h-12 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
-                  <Mail className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
-                </div>
-                <div>
-                  <p className="text-zinc-400 text-sm">Email</p>
-                  <p className="text-white font-semibold">{CONTACT.email}</p>
-                </div>
-              </a>
-
               <div className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4">
                 <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-orange-500" />
@@ -2210,6 +2246,20 @@ export default function Home() {
                   <p className="text-white font-semibold">San Carlos, Alajuela, Costa Rica</p>
                 </div>
               </div>
+
+              {/* Clientes de los parques: los mandamos a la oficina de su parque */}
+              {photoSupportParks.length > 0 && (
+                <a href="#photo-support" className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
+                  <div className="w-12 h-12 shrink-0 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
+                    <Camera className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-semibold">{t.photoSupport.title}</p>
+                    <p className="text-zinc-400 text-sm">{t.photoSupport.shortText}</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 shrink-0 text-zinc-500 group-hover:text-orange-500 transition-colors" />
+                </a>
+              )}
 
               {/* Social */}
               <div className="bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6">
@@ -2226,6 +2276,13 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+
+              <p className="text-sm text-zinc-500">
+                {t.photoSupport.ownersLabel}:{" "}
+                <a href={`mailto:${CONTACT.email}`} className="text-zinc-400 hover:text-orange-500 transition-colors">
+                  {CONTACT.email}
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -2257,10 +2314,6 @@ export default function Home() {
                   <Phone className="w-4 h-4" />
                   {CONTACT.phoneDisplay}
                 </a>
-                <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
-                  <Mail className="w-4 h-4" />
-                  {CONTACT.email}
-                </a>
                 <div className="flex items-center gap-3 text-zinc-400">
                   <MapPin className="w-4 h-4" />
                   San Carlos, Costa Rica
@@ -2269,8 +2322,52 @@ export default function Home() {
             </div>
           </div>
 
+          {/* ---------- SOPORTE A CLIENTES: correo de cada oficina ---------- */}
+          {photoSupportParks.length > 0 && (
+            <div id="photo-support" className="border-t border-zinc-800 pt-10 mb-12 scroll-mt-24">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-11 h-11 shrink-0 bg-orange-500/10 rounded-xl flex items-center justify-center">
+                  <Camera className="w-5 h-5 text-orange-500" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold">{t.photoSupport.title}</h4>
+                  <p className="text-zinc-400 text-sm mt-1 max-w-2xl">{t.photoSupport.text}</p>
+                </div>
+              </div>
+
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {photoSupportParks.map((park) => (
+                  <li key={park.id}>
+                    <a
+                      href={`mailto:${park.email}?subject=${encodeURIComponent(`${t.photoSupport.mailSubject} - ${park.name}`)}`}
+                      className="block h-full bg-zinc-950/60 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/40 transition-colors group"
+                    >
+                      <p className="font-semibold text-white">{park.name}</p>
+                      <p className="flex items-center gap-1.5 text-zinc-500 text-sm mt-1">
+                        <MapPin className="w-3.5 h-3.5 shrink-0" />
+                        {park.location}
+                      </p>
+                      <p className="flex items-center gap-1.5 text-orange-500 text-sm mt-3 break-all group-hover:underline">
+                        <Mail className="w-3.5 h-3.5 shrink-0" />
+                        {park.email}
+                      </p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} {t.footer.copyright}</p>
+            <div className="text-center md:text-left">
+              <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} {t.footer.copyright}</p>
+              <p className="text-zinc-600 text-xs mt-2">
+                {t.photoSupport.ownersLabel}:{" "}
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-orange-500 transition-colors">
+                  {CONTACT.email}
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-4">
               <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                 <Instagram className="w-4 h-4 text-zinc-400 group-hover:text-black" />

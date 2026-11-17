@@ -2237,6 +2237,16 @@ export default function Home() {
                 </div>
               </a>
 
+              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-500/30 transition-all group">
+                <div className="w-12 h-12 shrink-0 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
+                  <Mail className="w-6 h-6 text-orange-500 group-hover:text-black transition-colors" />
+                </div>
+                <div>
+                  <p className="text-zinc-400 text-sm">{t.photoSupport.ownersLabel}</p>
+                  <p className="text-white font-semibold break-all">{CONTACT.email}</p>
+                </div>
+              </a>
+
               <div className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-xl p-4">
                 <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-orange-500" />
@@ -2276,13 +2286,6 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-
-              <p className="text-sm text-zinc-500">
-                {t.photoSupport.ownersLabel}:{" "}
-                <a href={`mailto:${CONTACT.email}`} className="text-zinc-400 hover:text-orange-500 transition-colors">
-                  {CONTACT.email}
-                </a>
-              </p>
             </div>
           </div>
         </div>
@@ -2318,6 +2321,13 @@ export default function Home() {
                   <MapPin className="w-4 h-4" />
                   San Carlos, Costa Rica
                 </div>
+                <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 text-zinc-400 hover:text-orange-500 transition-colors">
+                  <Mail className="w-4 h-4 mt-1 shrink-0" />
+                  <span>
+                    <span className="block text-xs text-zinc-500">{t.photoSupport.ownersLabel}</span>
+                    <span className="break-all">{CONTACT.email}</span>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -2359,15 +2369,7 @@ export default function Home() {
           )}
 
           <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} {t.footer.copyright}</p>
-              <p className="text-zinc-600 text-xs mt-2">
-                {t.photoSupport.ownersLabel}:{" "}
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-orange-500 transition-colors">
-                  {CONTACT.email}
-                </a>
-              </p>
-            </div>
+            <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} {t.footer.copyright}</p>
             <div className="flex items-center gap-4">
               <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 bg-zinc-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors group">
                 <Instagram className="w-4 h-4 text-zinc-400 group-hover:text-black" />

@@ -2110,8 +2110,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== FOTOS DE CLIENTES: correo de cada oficina ==================== */}
+      {photoSupportParks.length > 0 && (
+        <section id="photo-support" className="py-20 px-4 bg-zinc-900/50 scroll-mt-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12 reveal">
+              <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.photoSupport.label}</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4">{t.photoSupport.title}</h2>
+              <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">{t.photoSupport.text}</p>
+            </div>
+
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+              {photoSupportParks.map((park) => (
+                <li key={park.id}>
+                  <a
+                    href={`mailto:${park.email}?subject=${encodeURIComponent(`${t.photoSupport.mailSubject} - ${park.name}`)}`}
+                    className="flex items-start gap-4 h-full bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-orange-500/40 transition-colors group"
+                  >
+                    <div className="w-11 h-11 shrink-0 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
+                      <Camera className="w-5 h-5 text-orange-500 group-hover:text-black transition-colors" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-white">{park.name}</p>
+                      <p className="flex items-center gap-1.5 text-zinc-500 text-sm mt-1">
+                        <MapPin className="w-3.5 h-3.5 shrink-0" />
+                        {park.location}
+                      </p>
+                      <p className="text-orange-500 text-sm mt-3 break-all group-hover:underline">{park.email}</p>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ==================== CONTACT ==================== */}
-      <section id="contact" className="py-24 px-4 bg-zinc-900/50">
+      <section id="contact" className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 reveal">
             <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.contact.label}</span>
@@ -2292,42 +2328,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ==================== FOTOS DE CLIENTES: correo de cada oficina ==================== */}
-      {photoSupportParks.length > 0 && (
-        <section id="photo-support" className="py-20 px-4 bg-zinc-950 scroll-mt-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 reveal">
-              <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">{t.photoSupport.label}</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4">{t.photoSupport.title}</h2>
-              <p className="text-zinc-400 mt-4 max-w-2xl mx-auto">{t.photoSupport.text}</p>
-            </div>
-
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
-              {photoSupportParks.map((park) => (
-                <li key={park.id}>
-                  <a
-                    href={`mailto:${park.email}?subject=${encodeURIComponent(`${t.photoSupport.mailSubject} - ${park.name}`)}`}
-                    className="flex items-start gap-4 h-full bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-orange-500/40 transition-colors group"
-                  >
-                    <div className="w-11 h-11 shrink-0 bg-orange-500/10 group-hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors">
-                      <Camera className="w-5 h-5 text-orange-500 group-hover:text-black transition-colors" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-white">{park.name}</p>
-                      <p className="flex items-center gap-1.5 text-zinc-500 text-sm mt-1">
-                        <MapPin className="w-3.5 h-3.5 shrink-0" />
-                        {park.location}
-                      </p>
-                      <p className="text-orange-500 text-sm mt-3 break-all group-hover:underline">{park.email}</p>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
 
       {/* ==================== FOOTER ==================== */}
       <footer className="bg-zinc-900 border-t border-zinc-800 py-16 px-4">
